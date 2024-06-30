@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+	<title th:text="${role != null} ? 'Edit Role' : 'Create Role'">Role Form</title>
+</head> 
+
+
+<body>
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+	
+	
+			<div class="px-4">
+				<h3 th:text="${department.id != null} ? 'Edit Department' : 'Create Department'">Department Form</h3>
+				<form th:action="@{/admin/department/save}" th:object="${department}" method="POST">
+					<div class="form-group">
+						<label for="type">Contact</label>
+						<input type="text" id="contact" th:field="*{contact}" class="form-control" placeholder="Enter contact"
+							required>
+					</div>
+					<div class="form-group">
+						<label for="type">Floor</label>
+						<input type="text" id="floor" th:field="*{floor}" class="form-control" placeholder="Enter floor"
+							required>
+					</div>
+					<div class="form-group">
+						<label for="type">Department Name</label>
+						<input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Enter name" required>
+					</div>
+					<button type="submit" class="btn btn-primary">Save</button>
+					<a href="/departments" class="btn btn-secondary">Cancel</a>
+				</form>
+			</div>
+	</div>
+    </div>			
+    </div>
+	
+</body>
+
+</html>

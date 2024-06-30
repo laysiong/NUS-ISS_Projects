@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Employee Management</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head>
+
+<body>
+	
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+	
+	<div class="px-4">
+		<h3>Employee List</h3>
+		<div class="form-group row">
+			<label for="departmentFilter" class="col-sm-2 col-form-label">Filter by Department:</label>
+			<div class="col-sm-4">
+				<select id="departmentFilter" class="form-control">
+					<option value="">All Departments</option>
+					<!-- Loop through departments to populate options -->
+					<option th:each="department : ${departments}" th:value="${department.id}"
+						th:text="${department.name}"></option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="supervisorFilter" class="col-sm-2 col-form-label">Filter by Supervisor:</label>
+			<div class="col-sm-4">
+				<select id="supervisorFilter" class="form-control">
+					<option value="">All Supervisors</option>
+					<!-- Loop through supervisors to populate options -->
+					<option th:each="sup : ${supervisors}" th:value="${sup.id}" th:text="${sup.name}"></option>
+				</select>
+			</div>
+		</div>
+		<a th:href="@{/admin/employee/create}" class="btn btn-primary btn-sm mb-3">Add employee</a>
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Job Role</th>
+					<th>Username</th>
+					<th>Contact Number</th>
+					<th>Join Date</th>
+					<th>Supervisor</th>
+					<th>Department</th>
+					<th>Operation</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${employees}"
+					th:data-department-id="${employee.department != null ? employee.department.id : ''}"
+					th:data-supervisor-id="${employee.supervisor != null ? employee.supervisor.id : ''}">
+					<td th:text="${employee.name}"></td>
+					<td th:text="${employee.email}"></td>
+					<td th:text="${employee.role.type}"></td>
+					<td th:text="${employee.username}"></td>
+					<td th:text="${employee.contactNum}"></td>
+					<td th:text="${#temporals.format(employee.join_date, 'yyyy-MM-dd')}"></td>
+					<td th:if="${employee.supervisor != null}" th:text="${employee.supervisor.name}"></td>
+					<td th:if="${employee.supervisor == null}"></td>
+					<td th:if="${employee.department != null}" th:text="${employee.department.name}"></td>
+					<td th:if="${employee.department == null}"></td>
+					<td>
+						<a th:href="@{/admin/employee/edit/{id}(id=${employee.id})}" class="btn btn-info btn-sm">Edit</a>
+						<a th:href="@{/admin/employee/delete/{id}(id=${employee.id})}" class="btn btn-danger btn-sm"
+							onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/admin/roles}" class="btn btn-primary btn-sm mb-3">Manage Roles</a>
+		<a th:href="@{/admin/departments}" class="btn btn-primary btn-sm mb-3">Manage Departments</a>
+	</div>
+	
+	
+	</div>			
+	</div>
+
+	<script>
+			// Function to filter the employees
+			function filterEmployees() {
+				var selectedDepartmentId = document.getElementById('departmentFilter').value;
+				var selectedSupervisorId = document.getElementById('supervisorFilter').value;
+
+				var rows = document.querySelectorAll('tr[data-department-id]');
+
+				// Loop through each row in the table body
+				rows.forEach(function (row) {
+					var departmentId = row.getAttribute('data-department-id');
+					var supervisorId = row.getAttribute('data-supervisor-id');
+
+					// Determine whether to show or hide the row
+					var showRow = true;
+
+					if (selectedDepartmentId !== '' && departmentId !== selectedDepartmentId) {
+						showRow = false;
+					}
+
+					if (selectedSupervisorId !== '' && supervisorId !== selectedSupervisorId) {
+						showRow = false;
+					}
+
+					// Show or hide the row
+					row.style.display = showRow ? '' : 'none';
+				});
+			}
+
+			// Add event listeners to the filters
+			document.getElementById('departmentFilter').addEventListener('change', filterEmployees);
+			document.getElementById('supervisorFilter').addEventListener('change', filterEmployees);
+		</script>
+</body>
+
+</html>

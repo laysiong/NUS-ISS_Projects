@@ -1,0 +1,122 @@
+/* side bar */
+
+.dropdown-toggle { outline: 0; }
+
+.nav-link {
+  color: white;
+}
+.nav-pills li{
+  margin-bottom: 1px;
+}
+
+.nav-link:hover {
+  color: #f8f9fa; /* Change this to the desired hover color */
+  background-color: #0d6efd !important; /* Change this to the desired background color */
+}
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+
+.btn-toggle:hover{
+  color: rgba(0, 0, 0, .85);
+  background-color: #0d6efd; /* Change this to the desired background color */
+}
+
+
+html,
+body {
+  height: 100%;
+  background: ghostwhite !important;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0; /* Padding for top and bottom */
+}
+
+.custom-background {
+    background-color: white; /* Or any color you prefer */
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+  .role-section {
+    display: block;
+}
+
+ .btn-fixed-size {
+    width: auto;
+    display: inline-block;
+}
+
+/* main menu leaves section */
+.card-fixed-height {
+    height: 150px; /* Adjust this value as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header-fixed-height {
+    height: 50px; /* Adjust this value as needed */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.box_min_width{
+	min-width: 600px !important;
+}
+
+.button_max_width{
+	max-width: 175px !important;
+}
+
+
+
+
+
+

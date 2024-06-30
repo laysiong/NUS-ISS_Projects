@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Leave Records</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <span th:replace="~{fragments/general.html :: js_css_assets}" />
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div th:replace="~{fragments/general.html :: menu}"></div>
+      <div class="card px-4" style="min-width:600px;">
+        <h2 class="mt-3" th:text="${leaveApplication.id == null} ? 'Create Leave Application' : 'Edit Leave Application'"></h2>
+        
+			<div class="card-body">
+	
+			<form th:action="@{/leaveform/save}" th:object="${leaveApplication}" method="post">
+	          <input type="hidden" th:field="*{id}" th:if="${leaveApplication.id != null}" />
+	          <input type="hidden" th:field="*{initialLeaveType.id}" />
+			  <input type="hidden" th:field="*{numOfoff}" />
+	
+	          <div class="form-group">
+	            <label>Start Date:</label>
+	            <input type="date" class="form-control" id="startDate" name="startDate" th:field="*{startDate}" />
+	            <p class="text-danger" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></p>
+	          </div>
+	
+	          <div class="form-group">
+	            <label>End Date:</label>
+	            <input type="date" class="form-control" id="endDate" name="endDate" th:field="*{endDate}" />
+	            <p class="text-danger" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></p>
+	          </div>
+	
+	          <div class="form-group">
+	            <label>Leave Reason:</label>
+	            <input type="text" class="form-control" th:field="*{reason}" />
+	            <p class="text-danger" th:if="${#fields.hasErrors('reason')}" th:errors="*{reason}"></p>
+	          </div>
+	
+	          <div class="form-group">
+	            <label>Leave Duration:</label>
+	            <input type="text" class="form-control" id="leaveDuration" readonly />
+	          </div>
+	
+	          <div class="form-group">
+	            <label>Remark:</label>
+	            <input type="text" class="form-control" th:field="*{remark}" />
+	            <p class="text-danger" th:if="${#fields.hasErrors('remark')}" th:errors="*{remark}"></p>
+	          </div>
+	
+	          <div class="form-group">
+	            <label>Oversea Contact Number:</label>
+	            <textarea class="form-control" th:field="*{newContactNum}" rows="3"></textarea>
+	            <p class="text-danger" th:if="${#fields.hasErrors('newContactNum')}" th:errors="*{newContactNum}"></p>
+	          </div>
+	
+	          <div class="form-group">
+	            <label>Leave Type:</label>
+	            <select class="form-control" th:field="*{leaveType.id}">
+	              <option th:each="type : ${leavetype}" th:value="${type.id}" th:text="${type.type}"></option>
+	            </select>
+	            <p class="text-danger" th:if="${#fields.hasErrors('leaveType.id')}" th:errors="*{leaveType.id}"></p>
+	          </div>
+	          <button type="submit" value="Save" class="btn btn-primary btn-sm">Submit</button>
+			  <div th:if="${errorMessage != null}" class="alert alert-danger" role="alert">
+			            <span th:text="${errorMessage}"></span>
+			   </div>
+				  
+				  
+	  
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+  	var publicHolidays = [];
+  	// retreive publicHolidays
+  	$.ajax({
+  		url: 'http://localhost:8080/api/holiday',
+  		type: 'GET',
+  		data: {},
+  		success: function (holidays) {
+  			publicHolidays = holidays.map(holiday => holiday.startDate);
+  			//console.log("publicHolidays", publicHolidays);
+  		},
+  		error: function (xhr, status, error) {
+  			console.error('Error fetching publicHolidays:', status, error);
+  		}
+  	});
+
+  	function parseDate(input) {
+  		const parts = input.split("-");
+  		return new Date(Date.UTC(parts[0], parts[1] - 1, parts[2])); // Adjust month index and use UTC
+  	}
+
+  	function isWeekendOrHoliday(date) {
+  		const dayOfWeek = date.getUTCDay();
+  		const formattedDate = date.toISOString().split('T')[0];
+  		//console.log(`publicHolidays.includes(formattedDate): ${publicHolidays.includes(formattedDate)}`);
+  		//console.log(`Checking date: ${formattedDate}, Day of Week: ${dayOfWeek}`);
+  		return dayOfWeek === 0 || dayOfWeek === 6 || publicHolidays.includes(formattedDate);
+  	}
+
+  	function calculateDateDifference(startDateInput, endDateInput, leaveDurationInput) {
+  		const startDate = parseDate(startDateInput.value);
+  		const endDate = parseDate(endDateInput.value);
+
+  		if (startDate && endDate && !isNaN(startDate) && !isNaN(endDate) && endDate >= startDate) {
+  			let totalDays = 0;
+  			let businessDays = 0;
+
+  			for (let date = new Date(startDate); date <= endDate; date.setUTCDate(date.getUTCDate() + 1)) {
+  				const formattedDate = date.toISOString().split('T')[0];
+  				totalDays++;
+  				if (!isWeekendOrHoliday(new Date(date))) {
+  					businessDays++;
+  				}
+  				console.log(`Date: ${formattedDate}, Total Days: ${totalDays}, Business Days: ${businessDays}`);
+  			}
+
+  			const resultDays = totalDays === 1 ? (isWeekendOrHoliday(startDate) ? 0 : 1) : (totalDays > 14 ? totalDays : businessDays);
+  			leaveDurationInput.value = resultDays + " days";
+  			//console.log(`Final Result: ${resultDays} days`);
+  		} else {
+  			leaveDurationInput.value = "Invalid dates";
+  		}
+  	}
+
+  	function initializeDateDifferenceCalculation() {
+  		const startDateInput = document.getElementById("startDate");
+  		const endDateInput = document.getElementById("endDate");
+  		const leaveDurationInput = document.getElementById("leaveDuration");
+
+  		const updateLeaveDuration = () => {
+  			calculateDateDifference(startDateInput, endDateInput, leaveDurationInput);
+  		};
+
+  		if (startDateInput && endDateInput && leaveDurationInput) {
+  			startDateInput.addEventListener("change", updateLeaveDuration);
+  			endDateInput.addEventListener("change", updateLeaveDuration);
+  		}
+  	}
+
+  	document.addEventListener("DOMContentLoaded", function () {
+  		initializeDateDifferenceCalculation();
+  	});
+  </script>
+
+</body>
+<span th:replace="~{fragments/general.html :: bootstrapscript}"/>
+
+</html>

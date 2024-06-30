@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Leave Record History</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+</head>
+
+<body>
+	<div class="container-fluid">
+	<div class="row justify-content-center">		
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+
+	<div class="card px-4" style="min-width:600px;">
+		<div class="card-header bg-white">
+			    <h1>Leave Record History</h1>
+		</div>
+	    <div class="card-body">
+	    <table  class="table table-striped table-hover table-fixed">
+			<thead>
+	
+			<tr>
+	            <!-- <th>Employee ID</th> -->
+	            <th>Start Date</th>
+	            <th>End Date</th>
+				<th>Leave Reason</th>
+				<th>Remark</th>
+				<th>Comment</th>
+				<th>Status</th>
+				<th>New Contact</th>
+				<th>Leave Type</th>
+				<th>Actions</th>
+
+	        </tr>
+			</thead>
+			<tbody class="table-group-divider">
+			<tr th:each="leaveRecord : ${leaveRecords}">
+			   <!--<td th:text="${leaveRecord.employee.id}"></td>-->
+               <td th:text="${leaveRecord.startDate}"></td>
+               <td th:text="${leaveRecord.endDate}"></td>
+               <td th:text="${leaveRecord.reason}"></td>
+               <td th:text="${leaveRecord.remark}"></td>
+               <td th:text="${leaveRecord.comment}"></td>
+               <td th:text="${leaveRecord.status}"></td>
+               <td th:text="${leaveRecord.newContactNum}"></td>
+               <td th:text="${leaveRecord.leaveType.type}"></td>
+			   <!--<td>
+				<a th:href="@{/leave-type/edit/{id}(id=${leaveType.id})}">Edit</a>
+			    <a th:href="@{/leave-type/delete/{id}(id=${leaveType.id})}" onclick="return confirm('Are you sure you want to delete this leave type?');">Delete</a>
+			   </td>-->
+			   <td>
+				<div th:if="${leaveRecord.editable}">
+					<a th:href="@{/editLeaveRecord/{id}/{date}(id=${leaveRecord.employee.id},date=${leaveRecord.startDate})}"
+														class="btn btn-primary btn-sm">Edit</a>
+					
+					
+					<a th:href="@{/deleteLeaveRecord/{id}/{date}(id=${leaveRecord.employee.id},date=${leaveRecord.startDate})}"
+								    onclick="return confirm('Are you sure you want to delete this leave record?');" 
+									class="btn btn-danger btn-sm">Delete</a>
+				</div>
+			   </td>
+			   <td>
+		
+			   </td>
+		
+			</tr> 
+			</tbody>
+
+    </table>
+    <!--<a th:href="@{/leave-type/new}">Create</a>
+    <a th:href="@{/}">Back to Home</a-->
+	</div>	
+	</div>			
+	</div>
+</body>
+</html>

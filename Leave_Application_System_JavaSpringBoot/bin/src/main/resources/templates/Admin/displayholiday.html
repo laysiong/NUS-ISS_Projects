@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Holidays Management</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head> 
+
+<body>
+	
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+
+
+	    <div class="px-4">
+	        <h3>Holiday Management</h3>
+	        <a href="/admin/holidaysform" class="btn btn-primary mb-3">Create New Entry</a>
+	        <table class="table table-striped">
+	            <thead>
+	                <tr>
+	                    <th>Id</th>
+						<th>Holidays</th>
+						<th>Date</th>
+						<th>Action</th>
+
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr th:each="holiday : ${holidays}">
+	                    <td th:text="${holiday.id}"></td>
+	                    <td th:text="${holiday.holiday}"></td>
+						<td th:text="${holiday.startDate}"></td>
+
+	                    <td>
+	                        <a th:href="@{/admin/holidayform/edit/{id}(id=${holiday.id})}" class="btn btn-primary">Edit</a>
+	                        <a th:href="@{/admin/holidays/delete/{id}(id=${holiday.id})}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this holiday?');">Delete</a>
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+	
+
+	</div>			
+	</div>
+	
+</body>
+</html>

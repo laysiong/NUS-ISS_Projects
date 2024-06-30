@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head>
+<body>
+    <h1>Error</h1>
+    <p>Something went wrong. Please try again.</p>
+    <a th:href="@{/}">Back</a>
+</body>
+</html>

@@ -1,0 +1,84 @@
+.ohnohoney{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    display: none;
+    z-index: -1;
+}
+
+
+html,
+body {
+  height: 100%;
+  background: ghostwhite !important;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0; /* Padding for top and bottom */
+}
+
+.custom-background {
+    background-color: white; /* Or any color you prefer */
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.nav-item:hover {
+    background-color: white; /* Light grey background on hover */
+}
+  .role-section {
+    display: block;
+}
+
+
+
+/* main menu leaves section */
+.card-fixed-height {
+    height: 150px; /* Adjust this value as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header-fixed-height {
+    height: 50px; /* Adjust this value as needed */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+

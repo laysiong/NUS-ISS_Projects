@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Leave Record</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			
+				<div th:replace="~{fragments/general.html :: menu}"></div>
+
+			    <div class="px-4">
+				<!--for the edit form purpose, but still doesn't work'-->
+			    <h1>Edit Leave Record</h1>
+			    
+			    <form th:object="${leaveRecord}" th:action="@{/save}" method="post">
+			        <input type="hidden" th:field="*{employee.id}" /> <!-- Use employee.id as a hidden field for employeeId -->
+			        <input type="hidden" th:field="*{startDate}" /> <!-- Use startDate as a hidden field -->
+			
+			        <!-- Display fields to edit -->
+			        <label>Start Date:</label>
+			        <input type="text" th:field="*{startDate}" disabled="disabled" /><br/> <!-- Display start date (disabled) -->
+			
+			        <label>End Date:</label>
+			        <input type="date" th:field="*{endDate}" /><br/>
+			        
+			        <label>Leave Reason:</label>
+			        <input type="text" th:field="*{reason}" /><br/>
+			        
+			        <label>Remark:</label>
+			        <input type="text" th:field="*{remark}" /><br/>
+			        
+			        <label>Comment:</label>
+			        <input type="text" th:field="*{comment}" /><br/>
+			        
+			        <input type="hidden" name="status" th:value="'Applied'" />
+			        
+			        <label>New Contact Number:</label>
+			        <input type="text" th:field="*{newContactNum}" /><br/>
+			        
+					<label>Leave Type:</label>
+					        <input type="text" th:field="*{leaveType.id}" /><br/>
+			        
+			        <button type="submit">Save</button>
+			    </form>
+			
+	    	</div>	
+	</div>			
+	</div>
+</body>
+</html>

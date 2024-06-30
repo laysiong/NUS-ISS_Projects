@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    ViewData["NavTitle"] = "Login";
+    //ViewData["hide_cartmenu"] = "hide";
+
+    string loginValid = (string)ViewData["loginValid"];
+}
+
+@section Scripts
+{
+    <script src="/js/login.js"></script>
+    <link href="/css/login.css" rel="stylesheet">
+    <link href="/css/bg.css" rel="stylesheet">
+}
+
+<div class="container text-center  w-90">
+
+    <!-- login in div -->
+    <div class="form_div align-middle row">
+        <h2>Welcome</h2>
+        <!-- form -->
+        <form class="login_form" action="/Home/Index" method="post">
+            <div class="form-group col-12">
+                <input name="username" id="username" class="form-control" type="text" placeholder="Username" required/>
+            </div>
+            <div class="form-group col-12">
+                <input name="password" id="password" class="form-control" type="password" placeholder="Password" required />
+            </div>
+            <div class="form-group-right col-12">
+                <button type="submit" class="btn btn-3d" value="Submit" id="submit_btn">Login</button>
+
+            </div>
+        </form>
+    </div>
+    @if (loginValid == "display")
+    {
+        <div class="overlay" id="overlay"></div>
+        @* if customer's input do not match with the database pop out the error message. *@
+        <div class="popup @loginValid" id="popup">
+            <div><h2>Opps! Something wrong happened!</h2></div>
+            <br />
+            <div>
+                <p>Maybe you just enter the <br /> wrong username or wrong number.<br />Please try again.</p>
+            </div>
+            <button type="reset" class="close-form btn btn-3d shadow-none" id="close_btn">Close</button>
+        </div>
+    }
+</div>

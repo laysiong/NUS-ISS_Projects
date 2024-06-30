@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Role Management</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head>
+
+<body>
+	
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+	
+		    <div class="px-4">
+		        <h3>Role Management</h3>
+		        <a href="/admin/role/form" class="btn btn-primary mb-3">Create New Role</a>
+		        <table class="table table-striped">
+		            <thead>
+		                <tr>
+		                    <th>ID</th>
+		                    <th>Type</th>
+		                    <th>Actions</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <tr th:each="role : ${roles}">
+		                    <td th:text="${role.id}"></td>
+		                    <td th:text="${role.type}"></td>
+		                    <td>
+		                        <a th:href="@{/admin/role/form(id=${role.id})}" class="btn btn-warning">Edit</a>
+		                        <a th:href="@{/admin/role/delete/{id}(id=${role.id})}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this role?');">Delete</a>
+		                    </td>
+		                </tr>
+		            </tbody>
+		        </table>
+		        <a href="/admin/employee" class="btn btn-secondary">Back to Employee List</a>
+		    </div>
+			
+	</div>			
+	</div>
+		
+</body>
+</html>

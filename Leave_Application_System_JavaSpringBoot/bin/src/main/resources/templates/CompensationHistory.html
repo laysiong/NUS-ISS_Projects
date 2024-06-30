@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Compensation History</title>
+  <span th:replace="~{fragments/general.html :: js_css_assets}"/>
+  <head>
+      <title>Compensation Details</title>
+ 
+  </head>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+		<div th:replace="~{fragments/general.html :: menu}"></div>
+	
+		<div  class="px-4" >
+		<h2>Compensation Claims History</h2>
+		
+		<!-- Add Hyperlink -->
+	
+		<table th:if="${not #lists.isEmpty(CompensationList)}" class="table table-striped table-hover table-fixed">
+		    <thead>
+		        <tr>
+		            <th>#</th>
+		            <th>startDate</th>
+		            <th>OT Hours</th>
+		            <th>Reason</th>
+		            <th>Comments</th>
+		            <th>Status</th>
+		            <th>Actions</th>
+		        </tr>
+		    </thead>
+		    <tbody class="table-group-divider">
+		        <tr th:each="Compensation, iterStat : ${CompensationList}">
+					<td th:text="${iterStat.index + 1}">1</td>				
+		            <td th:text="${Compensation.startDate}">startDate</td>
+		            <td th:text="${Compensation.Hours}">OT Hours</td>
+		            <td class="truncate" th:text="${Compensation.C_reason}">Reason</td>
+		            <td class="truncate" th:text="${Compensation.C_comment}">Comments</td>
+		            <td th:text="${Compensation.C_status}">Status</td>
+		            <td>
+		                <div th:if="${Compensation.editable}">
+		                    <a th:href="@{/compensation/edit/{id}(id=${Compensation.compensationId})}" class="btn btn-info btn-sm">Edit</a>
+		                    <a th:href="@{/compensation/delete/{id}(id=${Compensation.compensationId})}"
+		                       onclick="return confirm('Are you sure you want to delete this Compensation Claim?');" class="btn btn-danger btn-sm">Delete</a>
+		                </div>
+		                <div th:if="${!Compensation.editable}">
+		                    <a th:href="@{/compensation/view/{id}(id=${Compensation.compensationId})}" class="btn btn-primary btn-sm">View Details</a>
+		                </div>
+		            </td>
+		        </tr>
+		    </tbody>
+		</table>
+		<div th:if="${#lists.isEmpty(CompensationList)}">
+					  <p>Currently, there are no Compensation Claims Applied for this year</p>
+				</div>
+		</div>
+		
+	
+	</div>
+	</div>
+	<span th:replace="~{fragments/general.html :: jsscript}"/>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿.hide{
+    display:none;
+}
+
+.purchasedisplay {
+    height: auto;
+    background-color: #e3e3e3;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+
+/* Product Display */
+.Pdisplay {
+    width:auto;
+    padding: 10px;
+}
+
+.Pdisplay button {
+    border-radius:10px;
+}
+
+.Prod_Img {
+    height: auto;
+    max-width: auto;
+}
+.Prod_Img img {
+    border-radius: 20px;
+    padding:5px;
+}
+
+.Prod_Download {
+    padding: 5px;
+}
+
+.Prod_Remove {
+    padding: 5px;
+}
+
+/* Product Description*/
+
+.Prod_info {
+    height:100%;
+}
+
+.Prod_Title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.Prod_bdytext {
+    height: auto;
+    width: auto;
+    font-weight:normal;
+}
+
+.Pdescription {
+    width: 100%;
+    height:100%;
+    padding: 10px;
+}
+.Pdescription .col{
+    padding:0px;
+    margin:0px;
+}
+
+.Pdescription div:nth-child(odd){
+    font-weight:bold;
+}
+
+.purchasedisplay .Pdescription div {
+    padding: 0px;
+    text-align: left;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }

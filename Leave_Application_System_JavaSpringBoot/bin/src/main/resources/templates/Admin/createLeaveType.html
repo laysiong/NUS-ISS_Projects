@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Leave Type</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+</head>
+
+
+<body>
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+		
+			<div th:replace="~{fragments/general.html :: menu}"></div>
+
+		    <div class="card px-4">
+		    <h1>Create Leave Type</h1>
+		    <form th:action="@{/admin/leave-type/create}" th:object="${leaveType}" method="post">
+				<div class="form-group">
+			        <label for="type">Type:</label>
+			        <input type="text" id="type" th:field="*{type}" required />
+				</div>
+		        <button type="submit" class="btn btn-primary mb-3">Save</button>
+		        <a th:href="@{/admin/leave-types}" class="btn btn-secondary">Cancel</a>
+		    </form>
+		    </div>
+				
+	</div>			
+	</div>
+</body>
+</html>

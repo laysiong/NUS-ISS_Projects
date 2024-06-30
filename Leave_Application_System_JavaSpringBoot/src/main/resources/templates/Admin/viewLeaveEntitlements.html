@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Leave Entitlements</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+</head>
+
+
+
+<body>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			
+				<div th:replace="~{fragments/general.html :: menu}"></div>
+
+			    <div class="card px-4">
+			    <h2 class="mt-3">Leave Entitlements</h2>
+				
+				<!-- Search -->
+					<form action="#" th:action="@{/leave-entitlement/search}" method="get" class="form-inline mb-3">
+					    <div class="form-group mr-2">
+					        <label for="criteria" class="mr-2">Search by:</label>
+					        <select id="criteria" name="criteria" class="form-control">
+					            <option value="employeeName">Employee Name</option>
+					            <option value="employeeId">Employee ID</option>
+					            <option value="department">Department</option>
+					            <option value="role">Role</option>
+					        </select>
+					    </div>
+					    <div class="form-group mr-2">
+					        <input type="text" id="keyword" name="keyword" placeholder="Enter keyword" class="form-control">
+					    </div>
+					    <button type="submit" class="btn btn-primary">Search</button>
+						<a th:href="@{/leave-entitlements/resetLeaveCount}"
+																class="btn btn-info ml-2">Reset Leave Count </a>
+					</form>
+				<!-- Table to Display Results -->
+				
+		
+				
+			    <table class="table table-striped">
+					<thead>
+		                <tr>
+							<th>Employee ID</th>
+		                    <th>Employee Name</th>
+							<th>Department</th>
+							<th>Role</th>
+							<th th:each="leaveType : ${leaveTypes}" th:text="${leaveType.type}">Leave Type</th>
+							<th>Actions</th>
+
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <tr th:each="employeeLeave : ${employeeLeaveList}">
+		                    <td th:text="${employeeLeave.employeeId}">1</td>
+							<td th:text="${employeeLeave.employeeName}">name</td>
+	                        <td th:text="${employeeLeave.department}">HR</td>
+							<td th:text="${employeeLeave.role}">Admin</td>
+							<td th:each="leaveType : ${leaveTypes}" th:text="${employeeLeave.leaveBalances[leaveType.type]}">0.0</td>
+
+							<td>
+                              <a th:href="@{/leave-entitlement/edit/{employeeId}(employeeId=${employeeLeave.employeeId})}" class="btn btn-info btn-sm">Edit</a>
+                          </td>
+		                </tr>
+		            </tbody>
+
+			    </table>
+		    	</div>
+					
+		</div>			
+		</div>
+</body>
+<span th:replace="~{fragments/general.html :: bootstrapscript}"/>
+
+</html>

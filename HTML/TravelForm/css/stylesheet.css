@@ -1,0 +1,186 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    text-align:center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bold;
+}
+a:hover {
+    color: deepskyblue;
+}
+
+
+h1 {
+    margin: 0;
+    padding: 0px;
+    color: #055591;
+}
+
+h2 {
+    margin: 0;
+    padding: 0px;
+    color: #055591;
+}
+
+textarea{
+    resize:none;
+}
+
+.wrap {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.topMenu {
+    display:block;
+    padding: 10px;
+    height: 15px;
+    width: 100%;
+    background-color: #023962;
+    color: white;
+    text-align: center;
+}
+
+.topMenu .menuWrapper {
+    display: grid;
+    width: 30%;
+    margin: auto;
+}
+
+.topMenu .menuWrapper div {
+    grid-row:1/4;
+    float:left;
+}
+
+
+.top_container {
+    padding: 0 0 0 0;
+    height: auto;
+    margin: 0;
+    width: 100%;
+}
+.top_container h1{
+    font-family:'Segoe Script';
+    color:white;
+    padding:0px 0px 20px 0px;
+}
+
+.logo_class {
+    margin: 0px;
+    padding: 30px 0px 0px 0px;
+}
+
+
+.mid_container {
+    display: inline-block;
+    padding: 0 0 0 0;
+    width: 100%;
+}
+    .mid_container table {
+        margin: auto;
+        text-align: left;
+        background-color: white;
+    }
+
+
+.btm_cotainer {
+    padding: 10px 0px 10px 0px;
+    position: fixed;
+    bottom: 0px;
+    height: 15px;
+    width: 100%;
+    background-color: #023962;
+    color: white;
+    text-align: center;
+}
+
+.button {
+    background-color: #0298db; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+
+/* classes */
+
+
+.set-width {
+    width: 100%;
+}
+
+.set-90-width{
+    width: 90%;
+}
+
+.set-half-width {
+    width: 49.6%;
+}
+
+.set-quarter-width{
+    width: 25%;
+}
+
+.set-custom-width {
+    width: 15%;
+}
+
+
+.set-vertical-align {
+    vertical-align: top;
+}
+
+.set-text-center {
+    text-align: center;
+}
+
+.set-padding{
+    margin:0px;
+    padding:0px;
+}
+.table_noBorder {
+    border: 0px solid black;
+    border-collapse: collapse;
+}
+
+table {
+  
+    table-layout: fixed;
+    width: 100%;
+}
+table tr td{
+    height:25px;
+}
+
+#table2 td input{
+    width:90%;
+
+}
+
+#rcorners1 {
+    border-radius: 15px;
+    padding:30px;
+    width:600px;
+    height:625px;
+}
+
+html {
+    height: 100%;
+    background-image: linear-gradient(#024c8f, #63cfff);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

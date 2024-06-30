@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Department Management</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head> 
+
+<body>
+	
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+
+
+	    <div class="px-4">
+	        <h3>Department Management</h3>
+	        <a href="/admin/department/form" class="btn btn-primary mb-3">Create New Department</a>
+	        <table class="table table-striped">
+	            <thead>
+	                <tr>
+	                    <th>ID</th>
+						<th>Name</th>
+						<th>Contact</th>
+	                    <th>Floor</th>
+	                    <th>Actions</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr th:each="department : ${departments}">
+	                    <td th:text="${department.id}"></td>
+	                    <td th:text="${department.name}"></td>
+						<td th:text="${department.contact}"></td>
+						<td th:text="${department.floor}"></td>
+	                    <td>
+	                        <a th:href="@{/admin/department/form(id=${department.id})}" class="btn btn-warning">Edit</a>
+	                        <a th:href="@{/admin/department/delete/{id}(id=${department.id})}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this department?');">Delete</a>
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	        <a href="/employee" class="btn btn-secondary">Back to Employee List</a>
+	    </div>
+	
+
+	</div>			
+	</div>
+	
+</body>
+</html>

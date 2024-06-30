@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Compensation Details</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+		<div th:replace="~{fragments/general.html :: menu}"></div>
+
+		<div  class="card px-4" >
+    <h1 class="mt-5">Compensation Details</h1>
+    <div class="card mt-3">
+        <div class="card-header">
+            Compensation ID: <span th:text="${compensation.compensationId}">Compensation ID</span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Employee Details</h5>
+            <p class="card-text">
+                <strong>Employee Name:</strong> <span th:text="${compensation.employee.name}">Employee Name</span><br>
+                <strong>Employee Email:</strong> <span th:text="${compensation.employee.email}">Employee Email</span><br>
+            </p>
+
+            <h5 class="card-title">Compensation Details</h5>
+            <p class="card-text">
+                <strong>Start Date:</strong> <span th:text="${compensation.startDate}">Start Date</span><br>
+                <strong>Hours:</strong> <span th:text="${compensation.Hours}">Hours</span><br>
+                <strong>Reason:</strong> <span th:text="${compensation.C_reason}">Reason</span><br>
+                <strong>Comment:</strong> <span th:text="${compensation.C_comment}">Comment</span><br>
+                <strong>Status:</strong> <span th:text="${compensation.C_status}">Status</span><br>
+            </p>
+
+         
+
+            <a th:href="${referer}" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</body>
+</html>

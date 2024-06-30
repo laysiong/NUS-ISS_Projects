@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Gallery";
+    ViewData["NavTitle"] = ViewData["username"] == null ? "Gallery" : "Hello, " + ViewData["username"];
+    var products = (List<Product>)ViewData["products"];
+    var searchStr = (string?)ViewData["searchStr"];
+
+    string? loginStatus = Convert.ToString(ViewData["loginStatus"]);
+}
+
+@section Scripts {
+    <link rel="stylesheet" href="~/css/mypurchase.css?id=1231">
+    <script src="~/js/search.js"></script>
+    <script src="~/js/Gallery.js"></script>
+
+}
+
+
+<div class="container text-center w-90">
+    <input type="hidden" id="galleryItemCount" name="custId" value="@ViewBag.CartItemCount">
+
+    <br />
+    <div class="input-group md-form form-sm form-2 p1-0">
+        <input name="searchStr" id="searchStr" class="form-control my-0 py-1 red-border" type="text" placeholder="search" aria-label>
+        <div class="input-group-append">
+            <span class="input-group-text red lighten-3" id="basic-text1">
+                <button type="submit" class="search-button" id="searchBtn">search</button>
+            </span>
+        </div>
+    </div>
+    <br />
+    @* if there's no matched products *@
+    @if (products?.Count <= 0)
+    {
+        <div class="container w-auto" style="margin:auto; max-width:150px; padding:15px 10px 10px 10px">
+            <img src="~/Image/ICON/document.png" class="img-fluid" />
+        </div>
+        <div class="container w-auto" style="color: dimgrey;">
+            <h4>There is no matched products! Please try again.</h4>
+        </div>
+    }
+    <div class="row">
+        @foreach (var product in products)
+        {
+            <div class="col-lg-4 col-md-4 col-sm-12 my-4">
+                <div class="card custom-card text-black align-items-center justify-content-center">
+                    <div class="card-body text-center mx-auto">
+                        <div id="image-container" class="mx-auto" style="max-width: 300px; max-height: auto;">
+                            <img src="@product.Image" class="card-img-top img-fluid" alt="Product image">
+                        </div>
+                        <ul class="list-group list-group-flush" style="height: 125px; text-align:center;">
+                            <li class="list-group-item d-flex justify-content-center align-items-center"><h5 class="card-title">@product.ProdName</h5></li>
+                            <li class="list-group-item d-flex justify-content-center align-items-center"> <p class="card-text">@product.Description</p></li>
+                        </ul>
+                        <div class="card-body text-center mx-auto">
+@*                             <form method="post" action="~/Gallery/AddCart"></form>
+ *@
+                                <!-- to return it back to the current page rather than going back to Index-->
+                                <input type="hidden" name="returnUrl" value="@($"{Context.Request.Path}?searchStr={searchStr}")" />
+                                <input type="hidden" name="ProdId" value="@product.ProdId" />
+                            <button type="submit" class="btn btn-3d" onclick="addToCart('@product.ProdId')">
+                                    $@product.Price.ToString("0.00") Add to Cart
+                                </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

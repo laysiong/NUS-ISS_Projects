@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Leave Entitlements</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+</head>
+
+
+
+<body>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			
+				<div th:replace="~{fragments/general.html :: menu}"></div>
+
+			    <div class="card px-4">
+			    <h1>Leave Entitlements</h1>
+			    <table class="table table-striped">
+					<thead>
+		                <tr>
+		                    <th>Employee ID</th>
+		                    <th>Employee Name</th>
+		                    <th>MC</th>
+		                    <th>Annual Leaves</th>
+		                    <th>Compensation Leaves</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <tr th:each="employeeLeave : ${employeeLeaveList}">
+		                    <td th:text="${employeeLeave.employeeId}">1</td>
+		                    <td th:text="${employeeLeave.employeeName}">lays</td>
+		                    <td th:text="${employeeLeave.leaveBalances['MC']}">60.0</td>
+		                    <td th:text="${employeeLeave.leaveBalances['Annual Leaves']}">14.0</td>
+		                    <td th:text="${employeeLeave.leaveBalances['Compensation Leaves']}">0.0</td>
+							<td>
+                              <a th:href="@{/admin/leave-entitlement/edit/{employeeId}(employeeId=${employeeLeave.employeeId})}" class="btn btn-primary">Edit</a>
+                          </td>
+		                </tr>
+		            </tbody>
+			   <!-- <tr>
+			            <th>Employee ID</th>
+			            <th>Employee Name</th>
+			            <th>Leave Type</th>
+			            <th>Total Leave</th>
+			            <th>Taken Leave</th>
+			            <th>Available Leave</th>
+			            <th>Actions</th>
+			        </tr>
+			   		<tr th:each="leaveCount : ${leaveCounts}">
+			            <td th:text="${leaveCount.employee.id}"></td>
+			            <td th:text="${leaveCount.employee.username}"></td>
+			            <td th:text="${leaveCount.leaveType.type}"></td>
+			            <td th:text="${leaveCount.totalLeave}"></td>
+			            <td th:text="${leaveCount.takenLeave}"></td>
+			            <td th:text="${leaveCount.availableLeave}"></td>
+			            <td>
+			                <a th:href="@{/admin/leave-entitlement/edit/{employeeId}/{leaveTypeId}(employeeId=${leaveCount.employee.id}, leaveTypeId=${leaveCount.leaveType.id})}">Edit</a>
+			            </td>
+			        </tr> -->
+			    </table>
+		    	</div>
+					
+		</div>			
+		</div>
+</body>
+</html>

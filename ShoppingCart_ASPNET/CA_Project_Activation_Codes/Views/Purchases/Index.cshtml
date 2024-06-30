@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewData["Title"] = "My History";
+    ViewData["NavTitle"] = "My History";
+
+    var order = "/Image/ICON/"+ViewData["order"]+".png";
+    var ProdList = new List<Prod_Purchased>() { };
+    foreach (var p in ViewBag.ProdList)
+    {
+        Prod_Purchased prodDetail = new Prod_Purchased()
+        {
+            TranId = (string)p.TranId,
+            ProdId = (string)p.ProdId,
+            ProdName = (string)p.ProdName,
+            ProdQuantity = (int)(long)p.ProdQuantity,
+            Description = (string)p.Description,
+            Dates = (string)p.Dates,
+            Image = (string)p.Image,
+            Codes = p.Codes,
+        };
+        ProdList.Add(prodDetail);
+    }
+}
+
+@section Scripts {
+    <link rel="stylesheet" href="~/css/mypurchase.css?id=3453">
+    <script src="/js/download_link.js"></script>
+    <script src="/js/searchPurchases.js"></script>
+    <script src="/js/changeOrder.js"></script>
+}
+
+<div class="container text-center w-90">
+    <input type="hidden" id="galleryItemCount" name="custId" value="@ViewBag.CartItemCount">
+    @* search bar *@
+    <br />
+    <div class="input-group md-form form-sm form-2 p1-0">
+        <input name="searchStr" id="searchStr" class="form-control my-0 py-1 red-border" type="text" placeholder="search" aria-label>
+        <div class="input-group-append">
+            <span class="input-group-text red lighten-3" id="basic-text1">
+                <button type="submit" class="search-button" id="searchBtn">search</button>
+            </span>
+        </div>
+        @* order icon *@
+        <div style="margin:auto; max-width:60px; padding:5px 5px 5px 5px" onclick="switchIcon();">
+            <img style="cursor:pointer;" id="order_icon" src="@order" class="img-fluid" />
+        </div>
+
+    </div>
+ 
+    @if (ProdList.Count <= 0)
+    {
+        <div class="container w-auto" style="margin:auto; max-width:150px; padding:15px 10px 10px 10px">
+            <img src="~/Image/ICON/document.png" class="img-fluid" />
+        </div>
+        <div class="container w-auto" style="color: dimgrey;">
+            <h4>There is no purchases.</h4>
+        </div>
+    }
+    
+    @for (int i = 0; i < ProdList.Count; i++)
+    {
+        var productdetails = ProdList[i];
+
+        <div class="purchasedisplay row row-cols-1 row-cols-md-2">
+            <div class="col-lg-6 col-xl-4">
+                <div class="Pdisplay">
+                    <div id="Prod_Img" class="Prod_Img ratio ratio-1x1">
+                        <img class="img-fluid" src=@productdetails.Image />
+                    </div>
+                    <div class="Prod_Download"><button id="Prod_Download" class="btn btn-3d w-100 shadow-none">Download</button></div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-8">
+                <div class="Pdescription row row-cols-2 g-0">
+                    <div class="col-12 g-0 p-0 Prod_Info">
+                        <div id="Prod_Title" class="Prod_Title">
+                            @productdetails.ProdName
+                        </div>
+                        <div id="Prod_bdytext" class="Prod_bdytext">
+                            @productdetails.Description
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-5 col-md-4">TranID:</div>
+                    <div class="col col-sm-7 col-md-8">
+                        @productdetails.TranId
+                    </div>
+
+
+                    <div class="col col-sm-5 col-md-4">Purchased On:</div>
+                    <div class="col col-sm-7 col-md-8">
+                        @productdetails.Dates
+                    </div>
+
+                    <div class="col col-sm-5 col-md-4">Quantity:</div>
+                    <div class="col col-sm-7 col-md-8">
+                        @productdetails.ProdQuantity
+                    </div>
+
+                    <div class="col col-sm-5 col-md-4">Activation Code:</div>
+                    <div id="downloadOptionsContainer"  class="col col-sm-7 col-md-8">
+                        @if (@productdetails.ProdQuantity > 1)
+                        {
+                            <select id="downloadOptions"  class="form-select" aria-label="Default select example">
+                                @foreach (var codes in productdetails.Codes)
+                                {
+                                    <option value="@codes">@codes</option>
+                                }
+                            </select>
+                        }
+                        else
+                        {
+                            <span id="singleOption">@productdetails.Codes[0]</span>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+</div>

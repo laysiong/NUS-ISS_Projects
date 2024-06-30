@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+  <title>Compensation Application</title>
+  <span th:replace="~{fragments/general.html :: js_css_assets}"/>
+</head>
+
+<body>
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+		<div class="card px-4" style="min-width:600px;">
+			<h2>Compensation Application</h2>
+			<!-- Add Hyperlink -->
+		
+			<table th:if="${not #lists.isEmpty(CompensationList)}" class="table table-striped table-hover table-fixed">
+				<thead>
+				<tr >
+					<th>#</th>
+					<th>startDate</th>
+					<th>Employee</th>
+					<th>Hours</th>
+					<th>Reason</th>
+					<th>Status</th>
+					<th>Comments</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody class="table-group-divider">
+				<tr th:each="compensation, iterStat : ${CompensationList}">
+					<form id="compensationForm-[[${compensation.compensationId}]]" th:action="@{/manager/application_status/{id}(id=${compensation.compensationId})}" method="post">
+						<td th:text="${iterStat.index + 1}">1</td>				
+						<td th:text="${compensation.startDate}">startDate</td>
+						<td th:text="${compensation.employee.name}">Employee</td>
+	                    <td th:text="${compensation.hours}">OT Hours</td>
+	                    <td class="truncate" th:text="${compensation.c_reason}">Reason</td>
+	                    <td th:text="${compensation.c_status}">Status</td>
+	                    <td>
+	                        <textarea id="reason-[[${compensation.compensationId}]]" name="C_comment"></textarea>
+							<p class="text-danger" th:if="${compensationId == compensation.compensationId and error != null}" th:utext="${error}"></p>
+	                    </td>
+	                    <td>
+							<a th:href="@{/compensation/view/{id}(id=${compensation.compensationId})}" class="btn btn-primary btn-sm">View Details</a>
+	                        <button type="submit" name="status" value="Approve" class="btn btn-info btn-sm">Approve</button>
+	                        <button type="submit" name="status" value="Reject" class="btn btn-danger btn-sm">Reject</button>
+	                    </td>
+	                </form>
+				  </tr>
+				  </tbody>
+			</table>
+			<div th:if="${#lists.isEmpty(CompensationList)}">
+			       <p>Currently, there are no Compensation Applications.</p>
+			</div>
+				
+		</div>
+	</div>			
+	</div>	
+	<span th:replace="~{fragments/general.html :: jsscript}"/>
+
+</body>
+</html>

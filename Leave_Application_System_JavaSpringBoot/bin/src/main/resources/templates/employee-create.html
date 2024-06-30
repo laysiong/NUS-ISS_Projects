@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Employee Management</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head>
+
+<body>
+	
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+	
+	<div class="px-4">
+		<h3 th:text="${employee.id != null} ? 'Edit Employee' : 'Create Employee'"></h3>
+
+		<form th:action="@{/admin/employee/create}" th:if="${employee.id == null}" th:object="${employee}" method="POST">
+			<!-- Create form -->
+			this is new form.
+			<input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4" required>
+			<input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
+			<!--<input type="text" th:field="*{role.type}" placeholder="JobRole" class="form-control mb-4 col-4" required>-->
+			<div class="form-group">
+				<label for="role" class="col-4">Role</label>
+				<select id="role" th:field="*{role.id}" class="form-control col-4" required>
+					<option value="" disabled selected>Select Role</option>
+					<option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.type}"></option>
+				</select>
+			</div>
+			<input type="text" th:field="*{username}" placeholder="UserName" class="form-control mb-4 col-4" required>
+			<input type="tel" th:field="*{contactNum}" placeholder="ContactNumber" class="form-control mb-4 col-4"
+				required>
+			<!-- <input type="date" th:field="*{join_date}" class="form-control mb-4 col-4" readonly required>  -->
+
+			
+			<!-- Commented out Department field -->
+			           
+			<div class="form-group">
+				<label for="department" class="col-4">Department</label>
+				  <select id="department" th:field="*{department}" class="form-control col-4" required
+					onchange="loadSupervisors(this.value)">
+					<option value="" disabled selected>Select Department</option>
+					<option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}"></option>
+				</select> 
+			</div>
+
+			<div class="form-group">
+				<label for="supervisor" class="col-4">Supervisor</label>
+				<select id="supervisor" th:field="*{supervisor.id}" class="form-control col-4">
+					<option value="" disabled selected>Select Supervisor</option>
+					<option th:each="sup : ${supervisors}" th:value="${sup.id}" th:text="${sup.name}"></option>
+				</select>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+
+		<form th:action="@{'/admin/employee/edit/' + ${employee.id}}" th:unless="${employee.id == null}"
+			th:object="${employee}" method="POST">
+			<!-- Edit form -->
+			<input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4" required>
+			<input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
+			<!--<input type="text" th:field="*{role.type}" placeholder="JobRole" class="form-control mb-4 col-4" required>-->
+			<div class="form-group">
+				<label for="role" class="col-4">Role</label>
+				<select id="role" th:field="*{role.id}" class="form-control col-4" required>
+					<option value="" disabled selected>Select Role</option>
+					<option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.type}"
+						th:selected="${employee.role != null && employee.role.id == role.id}"></option>
+				</select>
+			</div>
+			<input type="text" th:field="*{username}" placeholder="UserName" class="form-control mb-4 col-4" required>
+			<input type="tel" th:field="*{contactNum}" placeholder="ContactNumber" class="form-control mb-4 col-4"
+				required>
+			<input type="date" th:field="*{join_date}" class="form-control mb-4 col-4" readonly required>
+
+			<div class="form-group">
+				<label for="department" class="col-4">Department</label>
+				<select id="department" th:field="*{department}" class="form-control col-4" required
+					onchange="loadSupervisors(this.value)">
+					<option value="" disabled selected>Select Department</option>
+					<option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}"></option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="supervisor" class="col-4">Supervisor</label>
+				<select id="supervisor" th:field="*{supervisor.id}" class="form-control col-4">
+					<option value="" disabled selected>Select Supervisors</option>
+					<option th:each="sup : ${supervisors}" th:value="${sup.id}" th:text="${sup.name}"></option>
+				</select>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+		<a th:href="@{/admin/employee}">Back to Employee List</a>
+	</div>
+
+	
+	</div>			
+	</div>
+	<!-- JavaScript section -->
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		function loadSupervisors(departmentId) {
+			var supervisors = /*[[${departmentSupervisors}]]*/ {}; // Load department supervisors data from Thymeleaf
+
+			var supervisorSelect = document.getElementById('supervisor');
+			supervisorSelect.innerHTML = '<option value="" disabled selected>Select Supervisor</option>'; // Clear existing options
+
+			var supervisorsForDepartment = supervisors[departmentId] || []; // Get supervisors for selected department
+
+			supervisorsForDepartment.forEach(function (supervisor) {
+				var option = document.createElement('option');
+				option.value = supervisor.id;
+				option.text = supervisor.name;
+				supervisorSelect.appendChild(option);
+			});
+		}
+		/*]]>*/
+	</script>
+</body>
+
+</html>

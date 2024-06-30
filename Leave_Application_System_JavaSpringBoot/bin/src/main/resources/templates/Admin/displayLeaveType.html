@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Leave Types</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}"/>
+</head>
+<body>
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+		
+			<div th:replace="~{fragments/general.html :: menu}"></div>
+
+		    <div class="px-4">
+			<a th:href="@{/admin/leave-type/new}" class="btn btn-primary mb-3">Create New Leave Type</a>
+		    <h1>Leave Types</h1>
+		    <table class="table table-striped">
+		        <tr>
+		            <th>ID</th>
+		            <th>Type</th>
+		            <th>Actions</th>
+		        </tr>
+		        <tr th:each="leaveType : ${leaveTypes}">
+		            <td th:text="${leaveType.id}"></td>
+		            <td th:text="${leaveType.type}"></td>
+		            <td>
+		                <a th:href="@{/admin/leave-type/edit/{id}(id=${leaveType.id})}" class="btn btn-warning">Edit</a>
+		                <a th:href="@{/admin/leave-type/delete/{id}(id=${leaveType.id})}" 
+						onclick="return confirm('Are you sure you want to delete this leave type?');"
+						class="btn btn-danger" >Delete</a>
+		            </td>
+		        </tr>
+		    </table>
+		    </div>
+				
+	</div>			
+	</div>
+</body>
+</html>

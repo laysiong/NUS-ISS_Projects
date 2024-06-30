@@ -1,0 +1,21 @@
+name: Build and Push
+
+# Release v1.0
+# Trigger
+on:
+  push:
+    branches:
+      - 'root'
+      - 'master'
+      - 'main'
+
+jobs:
+  Slack-Success:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        with:
+          args: '{"attachments":[{"color":"good","title":"Root Update Notification","text":"root directory updated"}]}'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.P_SLACK_WEBHOOK }}

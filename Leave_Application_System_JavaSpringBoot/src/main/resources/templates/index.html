@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Login Page</title>
+  <span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head>
+
+<body>
+
+	<main class="form-signin">
+	  <h2>Login</h2>
+	  <form th:object="${user}" th:action="@{/login/authenticate}" method="post">
+			<div>
+		              <span class="text-danger" th:if="${loginMessage != null}" th:text="${loginMessage}"></span>
+		          </div>
+		     
+			<div class="form-floating">
+				 <label for="floatingInput">Username</label>
+	              <input class="form-control" id="floatingInput" type="text" th:field="*{username}">
+	              <span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+	          </div>
+			  <div class="form-floating">
+				  <label for="floatingPassword">Password</label>
+	              <input class="form-control" id="floatingPassword" type="password" th:field="*{password}">
+	              <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+	          </div>
+	      
+	                  <button class="w-100 btn btn-lg btn-primary " type="submit"/>Sign In</button>
+	     
+	    
+	      
+	      
+
+	  </form>
+
+</body>
+</html>
+
+
+

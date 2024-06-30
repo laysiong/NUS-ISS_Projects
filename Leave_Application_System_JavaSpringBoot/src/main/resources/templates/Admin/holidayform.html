@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Holidays form</title>
+
+    <span th:replace="~{fragments/general.html :: js_css_assets}"/>
+	<script th:src="@{/js/caculateDate.js}" type="text/javascript"></script>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div th:replace="~{fragments/general.html :: menu}"></div>
+            <div class="card px-4 box_min_width">
+	<h2 class="mt-3" th:text="${holidays.id == null} ? 'Create Holidays' : 'Edit Holidays'"></h2>
+                <form th:action="@{/holidays/create}" th:object="${holidays}" method="post">
+                    <div class="form-group">
+						<input type="hidden" th:field="*{id}" th:if="${holidays.id != null}" />
+
+                        <label for="holiday">Name of Holiday:</label>
+                        <input type="text" class="form-control"  id="holiday" th:field="*{holiday}" required />
+                        <p class="text-danger" th:if="${#fields.hasErrors('holiday')}" th:errors="*{holiday}"></p>
+                    </div>
+					
+                    <div class="form-group">
+                        <label for="holidayDate">Start Dates:</label>
+                        <input type="date" class="form-control" id="startDate" name="startDate" th:field="*{startDate}" />
+                        <p class="text-danger" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></p>
+                    </div>
+				
+					
+                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                    <a th:href="@{/holidays}" class="btn btn-secondary btn-sm">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+	
+
+</body>
+<span th:replace="~{fragments/general.html :: bootstrapscript}"/>
+
+</html>

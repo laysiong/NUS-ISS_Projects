@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Personal Leave History</title>
+  <span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head>
+
+<body>
+	<div th:replace="~{fragments/general.html :: menu}"></div>
+
+	<h2>Leave History</h2>
+	<!-- Add Hyperlink -->
+
+	<!-- <table th:if="${not #lists.isEmpty(CompensationList)}" >
+		<tr >
+			<th>Index</th>
+			<th>startDate</th>
+			<th>OT Hours</th>
+			<th>Reason</th>
+			<th>Comments</th>
+			<th>Status</th>
+		</tr>
+		<tr th:each="Comepensation:${CompensationList}" >
+			<td th:text=${Comepensation.Compensation_id}>Index</td>
+			<td th:text="${Comepensation.startDate}">startDate</td>
+			<td th:text=${Comepensation.Hours}>OT Hours</td>
+			<td th:text=${Comepensation.C_reason}>Reason</td>
+			<td th:text=${Comepensation.C_comment}>Comments</td>
+			<td th:text=${Comepensation.C_status}>Status</td>
+			<td><a href="#">Cancel</a></td>
+		</tr>
+	</table> -->
+    <br/>
+	
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿/*
+
+ login.css used to beautify the login view 
+
+*/
+.login_form{
+    margin-top:40px;
+}
+
+
+.form_div {
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    transform: translate(0%, 10%);
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.form_div h2 {
+    text-align: center;
+    margin: auto;
+    font-weight: 700;
+    color: black;
+}
+
+.form_div .form-group input {
+    width: 300px;
+    display: inline-block;
+    margin:10px;
+    line-height: 35px;
+}
+
+.form_div .form-group input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),
+        0 0 8px rgba(102,175,233,.6); 
+}
+
+
+.form-group-right button {
+    margin-top: 10px;
+    width: 300px;
+}
+
+.close-form{
+    margin-top: 10px;
+    width: 300px;
+}
+
+
+/* pop up is used to decrorate the error popup*/
+.popup {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.popup div h2 {
+    margin:0px;
+    padding:0px;
+}
+
+.popup div p {
+    font-size:18px;
+}
+
+.overlay {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.hide {
+    display: none;
+}
+
+.display {
+    display: block;
+}
+
+

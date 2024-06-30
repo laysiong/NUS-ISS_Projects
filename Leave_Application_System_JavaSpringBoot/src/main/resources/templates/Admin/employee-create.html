@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Employee Management</title>
+	<span th:replace="~{fragments/general.html :: js_css_assets}" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Select2 CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div th:replace="~{fragments/general.html :: menu}"></div>
+
+			<div class="card px-4 box_min_width">
+				<h2 class="mt-3" th:text="${employee.id != null} ? 'Edit Employee' : 'Create Employee'"></h2>
+				<div class="card-body">
+
+					<form th:action="@{/employee/create}" th:if="${employee.id == null}" th:object="${employee}"
+						method="POST">
+						<!-- Create form -->
+						<div class="form-group">
+							<label for="Name">Name:</label>
+							<input type="text" th:field="*{name}" placeholder="name" class="form-control" required>
+							<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+						</div>
+						<div class="form-group">
+							<label for="Email">Email:</label>
+							<input type="email" th:field="*{email}" placeholder="email" class="form-control" required>
+							<p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+						</div>
+						<!--<input type="text" th:field="*{role.type}" placeholder="JobRole" class="form-control " required>-->
+						<div class="form-group">
+							<label for="role">Role</label>
+							<select id="role" th:field="*{role.id}" class="form-control" required>
+								<option value="" disabled selected>Select Role</option>
+								<option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.type}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="username">Username:</label>
+							<input type="text" th:field="*{username}" placeholder="username" class="form-control"
+								required>
+							<p class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+						</div>
+						<div class="form-group">
+							<label for="password">Password:</label>
+							<input type="text" th:field="*{password}" placeholder="password" class="form-control"
+								required>
+							<p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+						</div>
+
+						<div class="form-group">
+							<label for="contactNum">Contact Number:</label>
+							<input type="tel" th:field="*{contactNum}" placeholder="contactNum" class="form-control"
+								required>
+							<p class="text-danger" th:if="${#fields.hasErrors('contactNum')}" th:errors="*{contactNum}">
+							</p>
+						</div>
+						<!-- <input type="date" th:field="*{join_date}" class="form-control" readonly required>  -->
+
+
+						<!-- Commented out Department field -->
+
+						<div class="form-group">
+							<label for="department">Department</label>
+							<select id="department" th:field="*{department}" class="form-control" required
+								onchange="loadSupervisors(this.value)">
+								<option value="" disabled selected>Select Department</option>
+								<option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}">
+								</option>
+							</select>
+						</div>
+
+						<!-- Radio buttons to choose supervisor type -->
+						<div class="form-group">
+							<label>Supervisor Type</label><br>
+							<input type="radio" id="existingSupervisor" name="supervisorType" value="existing" checked>
+							<label for="existingSupervisor">Select Existing Supervisor</label><br>
+							<input type="radio" id="newSupervisor" name="supervisorType" value="new">
+							<label for="newSupervisor">Select New Supervisor from Employees</label>
+						</div>
+
+						<!-- Existing Supervisor Dropdown -->
+						<div class="form-group" id="existingSupervisorDropdown">
+							<label for="supervisor">Supervisor</label>
+							<br />
+							<select id="supervisorSelect" class="form-control select2">
+								<option value="" disabled selected>Select Supervisor</option>
+								<option th:each="sup : ${supervisors}" th:value="${sup.id}" th:text="${sup.name}">
+								</option>
+							</select>
+						</div>
+
+						<!-- New Supervisor (Employee) Dropdown -->
+						<div class="form-group" id="newSupervisorDropdown">
+							<label for="supervisor">Employee</label>
+							<br />
+							<select id="employeeSelect" class="form-control select2">
+								<option value="" disabled selected>Select Employee</option>
+								<option th:each="emp : ${employees}" th:value="${emp.id}" th:text="${emp.name}">
+								</option>
+							</select>
+						</div>
+
+						<!-- Hidden supervisor field to bind the value to the form object -->
+						<input type="hidden" id="supervisorId" name="supervisor" />
+						<div class="row">
+							<button id="submitButton" type="submit" class="btn btn-primary btn-sm">Save</button>
+							<a th:href="@{/employee}" class="btn btn-secondary btn-sm ml-2">Cancel</a>
+						</div>
+					</form>
+
+
+
+
+					<form th:action="@{'/employee/edit/' + ${employee.id}}" th:unless="${employee.id == null}"
+						th:object="${employee}" method="POST">
+						<!-- Edit form -->
+						<!--<input type="text" th:field="*{role.type}" placeholder="JobRole" class="form-control" required>-->
+						<div class="form-group">
+							<!-- Create form -->
+							<div class="form-group">
+								<label for="Name">Name:</label>
+								<input type="text" th:field="*{name}" placeholder="name" class="form-control" required>
+								<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+							</div>
+							<div class="form-group">
+								<label for="Email">Email:</label>
+								<input type="email" th:field="*{email}" placeholder="email" class="form-control"
+									required>
+								<p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+							</div>
+							<!--<input type="text" th:field="*{role.type}" placeholder="JobRole" class="form-control " required>-->
+							<div class="form-group">
+								<label for="role">Role</label>
+								<select id="role" th:field="*{role.id}" class="form-control" required>
+									<option value="" disabled selected>Select Role</option>
+									<option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.type}">
+									</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="username">Username:</label>
+								<input type="text" th:field="*{username}" placeholder="username" class="form-control"
+									required>
+								<p class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+								</p>
+							</div>
+							<div class="form-group">
+								<label for="password">Password:</label>
+								<input type="text" th:field="*{password}" placeholder="password" class="form-control"
+									required>
+								<p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+								</p>
+							</div>
+
+							<div class="form-group">
+								<label for="contactNum">Contact Number:</label>
+								<input type="tel" th:field="*{contactNum}" placeholder="contactNum" class="form-control"
+									required>
+								<p class="text-danger" th:if="${#fields.hasErrors('contactNum')}"
+									th:errors="*{contactNum}"></p>
+							</div>
+							<!-- <input type="date" th:field="*{join_date}" class="form-control" readonly required>  -->
+
+
+							<!-- Commented out Department field -->
+
+							<div class="form-group">
+								<label for="department">Department</label>
+								<select id="department" th:field="*{department}" class="form-control" required
+									onchange="loadSupervisors(this.value)">
+									<option value="" disabled selected>Select Department</option>
+									<option th:each="dept : ${departments}" th:value="${dept.id}"
+										th:text="${dept.name}"></option>
+								</select>
+							</div>
+
+							<!-- Radio buttons to choose supervisor type -->
+							<div class="form-group">
+								<label>Supervisor Type</label><br>
+								<input type="radio" id="existingSupervisor" name="supervisorType" value="existing"
+									checked>
+								<label for="existingSupervisor">Select Existing Supervisor</label><br>
+								<input type="radio" id="newSupervisor" name="supervisorType" value="new">
+								<label for="newSupervisor">Select New Supervisor from Employees</label>
+							</div>
+
+							<!-- Existing Supervisor Dropdown -->
+							<div class="form-group" id="existingSupervisorDropdown">
+								<label for="supervisor">Supervisor</label>
+								<br />
+								<select id="supervisorSelect" class="form-control select2">
+									<option value="" disabled selected>Select Supervisor</option>
+									<option th:each="sup : ${supervisors}" th:value="${sup.id}" th:text="${sup.name}">
+									</option>
+								</select>
+							</div>
+
+							<!-- New Supervisor (Employee) Dropdown -->
+							<div class="form-group" id="newSupervisorDropdown">
+								<label for="supervisor">Employee</label>
+								<br />
+								<select id="employeeSelect" class="form-control select2">
+									<option value="" disabled selected>Select Employee</option>
+									<option th:each="emp : ${employees}" th:value="${emp.id}" th:text="${emp.name}">
+									</option>
+								</select>
+							</div>
+
+							<!-- Hidden supervisor field to bind the value to the form object -->
+							<input type="hidden" id="supervisorId" name="supervisor" />
+							<div class="row">
+								<button id="submitButton" type="submit" class="btn btn-primary btn-sm">Update</button>
+								<a th:href="@{/employee}" class="btn btn-secondary btn-sm ml-2">Cancel</a>
+							</div>
+					</form>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		var departmentSupervisors = /*[[${departmentSupervisorsJson}]]*/ '{}';
+		var departmentEmployees = /*[[${departmentEmployeesJson}]]*/ '{}';
+		var defaultSupervisor = /*[[${employee.supervisor == null ? null : employee.supervisor.id }]]*/ '{}';
+		departmentSupervisors = JSON.parse(departmentSupervisors);
+		departmentEmployees = JSON.parse(departmentEmployees);
+
+
+		function loadSupervisors(department) {
+			//var myVariable = "Hello, this is a variable!";
+			//console.log(department); // This will print the value of the department to the console
+			//alert(myVariable); // This will show an alert box with the value of myVariable
+
+			// Ensure this is properly formatted JSON from Thymeleaf
+			supervisors = departmentSupervisors[department] || [];
+			employees = departmentEmployees[department] || [];
+			defaultSupervisor = supervisors.length > 0 ? supervisors[0].id : null;
+
+			var supervisorSelect = document.getElementById('supervisorSelect');
+
+			supervisorSelect.innerHTML = '<option value="" selected>Select Supervisor</option>'; // Clear existing options
+
+			supervisors.forEach(function (supervisor) {
+				var option = document.createElement('option');
+				option.value = supervisor.id;
+				option.text = supervisor.name;
+				if (supervisor.id === defaultSupervisor) {
+					option.selected = true;
+				}
+				supervisorSelect.appendChild(option);
+			});
+
+			var employeeSelect = document.getElementById('employeeSelect');
+			employeeSelect.innerHTML = '<option value="" selected>Select Employee</option>'; // Clear existing options
+
+			employees.forEach(function (employee) {
+				var option = document.createElement('option');
+				option.value = employee.id;
+				option.text = employee.name;
+				if (employee.id === defaultSupervisor) {
+					option.selected = true;
+				}
+				employeeSelect.appendChild(option);
+			});
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const existingSupervisorRadio = document.getElementById('existingSupervisor');
+			const departmentSelect = document.getElementById('department');
+			const newSupervisorRadio = document.getElementById('newSupervisor');
+			const existingSupervisorDropdown = document.getElementById('existingSupervisorDropdown');
+			const newSupervisorDropdown = document.getElementById('newSupervisorDropdown');
+			const supervisorSelect = document.getElementById('supervisorSelect');
+			const employeeSelect = document.getElementById('employeeSelect');
+			const supervisorIdField = document.getElementById('supervisorId');
+			loadSupervisors(departmentSelect.value);
+			newSupervisorDropdown.style.display = 'none';
+
+
+			function updateSupervisorId(value) {
+				supervisorIdField.value = value;
+			}
+
+			existingSupervisorRadio.addEventListener('change', function () {
+				if (this.checked) {
+					existingSupervisorDropdown.style.display = 'block';
+					newSupervisorDropdown.style.display = 'none';
+				}
+			});
+
+			newSupervisorRadio.addEventListener('change', function () {
+				if (this.checked) {
+					existingSupervisorDropdown.style.display = 'none';
+					newSupervisorDropdown.style.display = 'block';
+				}
+			});
+
+			supervisorSelect.addEventListener('change', function () {
+				updateSupervisorId(this.value);
+			});
+
+			employeeSelect.addEventListener('change', function () {
+				updateSupervisorId(this.value);
+			});
+
+			// Handle form submit to ensure supervisorIdField is updated
+			const submitButton = document.getElementById('submitButton');
+			submitButton.addEventListener('click', function () {
+				if (existingSupervisorRadio.checked) {
+					updateSupervisorId(supervisorSelect.value);
+				} else if (newSupervisorRadio.checked) {
+					updateSupervisorId(employeeSelect.value);
+				}
+			});
+		});
+		// Initialize Select2 for employee dropdown
+		$('.select2').select2();
+		/*]]>*/
+	</script>
+
+</body>
+
+
+</html>

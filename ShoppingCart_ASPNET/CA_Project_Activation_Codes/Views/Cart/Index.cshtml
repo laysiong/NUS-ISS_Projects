@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "My Cart";
+    ViewData["NavTitle"] = "My Cart";
+
+    // ViewData["hide_cartmenu"] = "hide";
+    // Retrieve the success parameter from the query string and convert it to lower case
+
+    var CartList = ViewBag.CartList;
+    string? loginStatus = Convert.ToString(ViewData["loginStatus"]);
+}
+
+@section Scripts {
+    <link rel="stylesheet" href="~/css/mypurchase.css?id=1234">
+    <script src="~/js/Cart.js"></script>
+
+    <script>
+        // Pass ViewBag.CartList directly to JavaScript
+        var cartItems = @Html.Raw(Json.Serialize(ViewBag.CartList));
+    </script>
+}
+
+
+
+<div class="container text-center w-90">
+
+    <div class="row m-0" style="padding: 1rem 1.1rem 0rem 0rem">
+        <div class="col-12">
+         
+            <h4 id="TotalSumValue" style="float:right"></h4>
+
+            <div id="CartEmptyImg" class="@ViewData["Cart"] container w-auto " style="margin:auto; max-width:170px; padding:10px 10px 15px 30px"><img src="~/Image/ICON/empty-cart.png" class="img-fluid" /></div>
+            <h4 id="CartEmpty" class="@ViewData["Cart"] container w-auto" style="text-align:center; color:dimgrey">Your Cart is empty.</h4>
+
+        </div>
+    </div>
+  
+ 
+    <div class="row p-0 m-0">
+        <form id="checkoutForm" method="post" action="Cart/CheckOut">
+            @for (int i = 0; i < CartList.Count; i++)
+            {
+                var cart_item = CartList[i];
+                <input type="hidden" name="cartItem[@i].ProdId" value="@cart_item.ProdId" />
+
+
+                <div class="purchasedisplay row row-cols-1 row-cols-md-2" id="product_@(cart_item.TranId)" data-tranId="product_@(cart_item.ProdId)">
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="Pdisplay">
+                            <div id="Prod_Img" class="Prod_Img ratio ratio-1x1">
+                                <img class="img-fluid" src=@cart_item.Image />
+                            </div>
+                            <div class="Prod_Remove">
+                                <button type="button" class="btn btn-3d w-100 shadow-none" onclick="removeProduct('@cart_item.TranId', '@cart_item.ProdId')">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-xl-8">
+                        <div class="Pdescription row row-cols-2 g-0">
+                            <div class="col-12 g-0 p-0 Prod_Info">
+                                <div id="Prod_Title" class="Prod_Title">@cart_item.ProdName</div>
+                                <div id="Prod_bdytext" class="Prod_bdytext">@cart_item.Description</div>
+                            </div>
+
+                            <div class="col col-md-2 col-sm-4">Price:</div>
+                            <div class="col col-md-10 col-sm-8">$@cart_item.Price.ToString("0.00")</div>
+
+                            <div class="col col-md-2 col-sm-4">Quantity:</div>
+                            <div class="col col-md-10 col-sm-8 cartQuantity">
+                                <div data-mdb-input-init class="form p-0">
+                                    <div class="input-group p-0">
+                                        @* minus button *@
+                                        <button class="btn btn-outline-secondary" type="button" onclick="increaseQuantity('@cart_item.TranId', '@cart_item.ProdId')">+</button>
+                                        @* Quantity *@
+                                        <input name="cartItem[@i].ProdQuantity" id="postfix_@(cart_item.TranId)_@(cart_item.ProdId)" value="@cart_item.ProdQuantity" type="text" class="form-control" />
+                                        @* plus button *@
+                                        <button class="btn btn-outline-secondary" type="button" onclick="decreaseQuantity('@cart_item.TranId', '@cart_item.ProdId')">-</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            @*  Show the total sum cost *@
+
+            <button id="CheckOut" name="CheckOut" class="btn btn-3d shadow-none disabled hide">CheckOut</button>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,75 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Main Menu</title>
+  <span th:replace="~{fragments/general.html :: js_css_assets}"/>
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+	        <!-- Navigation Menu -->
+	        <div th:replace="~{fragments/general.html :: menu}"></div>
+				        <!-- Main Content -->
+						
+			<div class="px-4">
+	            <!-- Recent Updates Section -->
+				
+				<div class="my-3 p-3 bg-white rounded shadow-sm custom-background">
+				    <h5 class="pb-2 mb-0">Recent Applied/Updated</h5>
+				    <div class="d-flex text-muted w-100 flex-column">
+				        <div th:each="leaveRecord : ${leaveRecords}" class="lh-sm border-bottom w-100">
+				            <div class="d-flex mt-2 mb-2 justify-content-between">
+				                <div>
+									<b th:text="${leaveRecord.leaveType.type + ' - ' + leaveRecord.startDate}">Leave Type</b>
+									<span> ( Status: <span th:text="${leaveRecord.status}" >status</span> )</span>
+									
+									<span class="d-block pt-2">Reason:</span>
+									<span class ="p-0 m-0" th:text="${leaveRecord.reason == null ? '-' : leaveRecord.reason}"></span>
+								 </div>
+				                <div>
+				                    <a href="#" class="btn btn-sm btn-primary">Edit</a>
+				                    <a href="#" class="btn btn-sm btn-danger">Cancel</a>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+
+										
+					<small class="d-block text-end mt-3">
+						<a href="/appliedLeaveRecords">Manage Personal Leaves</a>
+					 </small>
+	            </div>
+
+				
+				
+	            <!-- Leave Counts Section -->
+				<div class="text-center mt-4">
+					<div class="row no-gutters">
+					       <div class="col-md-4 p-0" th:each="leaveCount : ${leaveCounts}">
+					           <div class="card mb-3 card-fixed-height">
+								<div class="card-header card-header-fixed-height">
+								         <strong class="card-title p-0 m-0" th:text="${leaveCount.leaveType.type}">Leave Type</strong>
+								     </div>
+					               <div class="card-body">
+					                   <p class="card-text p-0 m-0">
+					                       Avaliable Leaves
+										   <h3 class="p-0 m-0" th:text="${leaveCount.getAvailableLeave()}">0</h3>
+					                   </p>
+					               </div>
+					           </div>
+					       </div>
+					   </div>
+	            </div>
+				
+				
+				
+				
+	        </div>
+	    </div>
+	</div>
+	<span th:replace="~{fragments/general.html :: jsscript}"/>
+
+</body>
+</html>
