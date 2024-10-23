@@ -1,0 +1,113 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp">
+
+    <!-- Username -->
+    <TextView
+        android:id="@+id/commentUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Username"/>
+
+    <!-- Overflow Menu (3 dots) -->
+    <ImageView
+        android:id="@+id/overflowMenu"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/menu"
+        android:padding="8dp"
+        android:src="@drawable/ic_more_vert"
+        app:layout_constraintTop_toTopOf="@id/commentUsername"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/commentContent"/>
+
+    <!-- Timestamp -->
+    <TextView
+        android:id="@+id/commentTimestamp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginTop="-10px"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/commentUsername"
+        tools:text="Timestamp"/>
+
+    <!-- Content -->
+    <TextView
+        android:id="@+id/commentContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/commentTimestamp"
+        tools:text="Comment content"/>
+
+
+    <!-- review Button -->
+    <Button
+        android:id="@+id/viewBtn"
+        android:layout_width="0dp"
+        android:layout_height="135px"
+        android:text="+"
+        android:drawableLeft="@drawable/add"
+        android:padding="8dp"
+        android:backgroundTint="@color/likeButton"
+        android:textColor="@color/buttonTxt"
+        app:layout_constraintTop_toBottomOf="@id/commentContent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="plusView"
+        app:layout_constraintWidth_percent="0.1"/>
+
+    <!-- Comment Count -->
+    <Button
+        android:id="@+id/commentCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Comment"
+        android:drawableLeft="@drawable/ic_comment"
+        android:padding="8dp"
+        android:backgroundTint="@color/likeButton"
+        android:textColor="@color/buttonTxt"
+        app:layout_constraintTop_toBottomOf="@id/commentContent"
+        app:layout_constraintStart_toEndOf="@id/viewBtn"
+        tools:text="Comments"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintWidth_percent="0.42"/>
+
+    <!-- Like Button -->
+    <Button
+        android:id="@+id/likeBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/likeButton"
+        android:drawableLeft="@drawable/ic_like"
+        android:padding="8dp"
+        android:text="Like"
+        android:textColor="@color/buttonTxt"
+        app:layout_constraintTop_toBottomOf="@id/commentContent"
+        app:layout_constraintStart_toEndOf="@id/commentCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.42"/>
+
+    <!-- RecyclerView for Child Comments -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/childCommentRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/likeBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

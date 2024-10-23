@@ -1,0 +1,152 @@
+.App {
+  /*text-align: center;*/
+  display: flex;
+  height: 100vh;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding-left: 250px; /* Adjust based on sidebar width */
+  transition: padding-left 0.3s;
+}
+
+.main-content.collapsed {
+  padding-left: 80px; /* Adjust based on collapsed sidebar width */
+}
+
+.app-container {
+  display: flex;
+}
+
+.content {
+  flex-grow: 1;
+  margin-left: 250px;
+  padding: 70px;
+  transition: margin-left 0.3s;
+  z-index: 500;
+}
+
+.navigation.collapsed + .content {
+  margin-left: 50px;
+}
+
+.float-right-custom {
+  float: right !important;
+  background: #000;
+}
+
+.contentDiv {
+  width: 30vw;
+  min-width: 500px;
+  padding: 10px;
+  margin: auto; /* Center the div horizontally */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Adjust the gap between columns as needed */
+}
+
+.grid-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.top-right-corner {
+  position: absolute;
+  top: 10px;  /* Adjust as needed */
+  right: 10px;  /* Adjust as needed */
+}
+
+
+/* SmcardPanel */
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+/* Ensure the flex items take up equal height */
+.flex-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.sm-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust the gap as needed */
+  justify-content: space-between;
+}
+
+/* Individual card styles */
+.sm-card {
+  flex: 1 1 100%; /* Ensure each card takes up 25% of the container height */
+  margin-bottom: 10px; /* Adjust the margin as needed */
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+/* Remove bottom margin for the last card */
+.sm-card:last-child {
+  margin-bottom: 0;
+}
+.card-content {
+  padding: 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+
+
+
+.icon-thing {
+  font-size: 30px;
+  color: #ffffff;
+  margin-right: 5px;
+  margin-left: -5px;
+}
+
+.table-header {
+  background-color: #000000; /* Black background */
+  color: #ffffff;           /* White text */
+}

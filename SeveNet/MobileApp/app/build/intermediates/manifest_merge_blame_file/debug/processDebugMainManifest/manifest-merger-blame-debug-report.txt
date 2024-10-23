@@ -1,0 +1,160 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="edu.nus.adproject"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="29"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <permission
+13-->[androidx.core:core:1.13.0] C:\Users\laysi\.gradle\caches\transforms-4\f4a25eb178310fc8f72f5c01fbdd1be7\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+14        android:name="edu.nus.adproject.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.13.0] C:\Users\laysi\.gradle\caches\transforms-4\f4a25eb178310fc8f72f5c01fbdd1be7\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.13.0] C:\Users\laysi\.gradle\caches\transforms-4\f4a25eb178310fc8f72f5c01fbdd1be7\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="edu.nus.adproject.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.13.0] C:\Users\laysi\.gradle\caches\transforms-4\f4a25eb178310fc8f72f5c01fbdd1be7\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.13.0] C:\Users\laysi\.gradle\caches\transforms-4\f4a25eb178310fc8f72f5c01fbdd1be7\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:7:5-40:19
+20        android:allowBackup="true"
+20-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:8:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.13.0] C:\Users\laysi\.gradle\caches\transforms-4\f4a25eb178310fc8f72f5c01fbdd1be7\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+22        android:dataExtractionRules="@xml/data_extraction_rules"
+22-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:9:9-65
+23        android:debuggable="true"
+24        android:extractNativeLibs="false"
+25        android:fullBackupContent="@xml/backup_rules"
+25-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:10:9-54
+26        android:icon="@mipmap/ic_launcher"
+26-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:11:9-43
+27        android:label="@string/app_name"
+27-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:12:9-41
+28        android:networkSecurityConfig="@xml/network_security_config"
+28-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:13:9-69
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:14:9-54
+30        android:supportsRtl="true"
+30-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:15:9-35
+31        android:testOnly="true"
+32        android:theme="@style/Theme.ADProject"
+32-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:16:9-47
+33        android:usesCleartextTraffic="true" >
+33-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:17:9-44
+34
+35        <!-- <activity -->
+36        <!-- android:name=".activities.PostDetails" -->
+37        <!-- android:exported="false" /> -->
+38        <activity
+38-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:22:9-24:40
+39            android:name="edu.nus.adproject.activities.AppActivity"
+39-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:23:13-51
+40            android:exported="false" />
+40-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:24:13-37
+41        <activity
+41-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:25:9-27:40
+42            android:name="edu.nus.adproject.activities.RegisterActivity"
+42-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:26:13-56
+43            android:exported="false" />
+43-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:27:13-37
+44        <activity
+44-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:28:9-36:20
+45            android:name="edu.nus.adproject.activities.LoginActivity"
+45-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:29:13-53
+46            android:exported="true" >
+46-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:30:13-36
+47            <intent-filter>
+47-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:31:13-35:29
+48                <action android:name="android.intent.action.MAIN" />
+48-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:32:17-69
+48-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:32:25-66
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:34:17-77
+50-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:34:27-74
+51            </intent-filter>
+52        </activity>
+53        <activity
+53-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:37:9-39:40
+54            android:name="edu.nus.adproject.activities.NewFeed"
+54-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:38:13-47
+55            android:exported="false" />
+55-->C:\Users\laysi\Downloads\Team07 AD Deliverables\2_SourceCode\MobileApp\app\src\main\AndroidManifest.xml:39:13-37
+56
+57        <provider
+57-->[androidx.emoji2:emoji2:1.3.0] C:\Users\laysi\.gradle\caches\transforms-4\65113a6ffae8e4f8bd6a9e3c946ee3d5\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+58            android:name="androidx.startup.InitializationProvider"
+58-->[androidx.emoji2:emoji2:1.3.0] C:\Users\laysi\.gradle\caches\transforms-4\65113a6ffae8e4f8bd6a9e3c946ee3d5\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+59            android:authorities="edu.nus.adproject.androidx-startup"
+59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\laysi\.gradle\caches\transforms-4\65113a6ffae8e4f8bd6a9e3c946ee3d5\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+60            android:exported="false" >
+60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\laysi\.gradle\caches\transforms-4\65113a6ffae8e4f8bd6a9e3c946ee3d5\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+61            <meta-data
+61-->[androidx.emoji2:emoji2:1.3.0] C:\Users\laysi\.gradle\caches\transforms-4\65113a6ffae8e4f8bd6a9e3c946ee3d5\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+62-->[androidx.emoji2:emoji2:1.3.0] C:\Users\laysi\.gradle\caches\transforms-4\65113a6ffae8e4f8bd6a9e3c946ee3d5\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+63                android:value="androidx.startup" />
+63-->[androidx.emoji2:emoji2:1.3.0] C:\Users\laysi\.gradle\caches\transforms-4\65113a6ffae8e4f8bd6a9e3c946ee3d5\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+64            <meta-data
+64-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\laysi\.gradle\caches\transforms-4\1456a651d5b2ddf801974ad073428bc1\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+65-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\laysi\.gradle\caches\transforms-4\1456a651d5b2ddf801974ad073428bc1\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+66                android:value="androidx.startup" />
+66-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\laysi\.gradle\caches\transforms-4\1456a651d5b2ddf801974ad073428bc1\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+68-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+69                android:value="androidx.startup" />
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+70        </provider>
+71
+72        <receiver
+72-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+73            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+74            android:directBootAware="false"
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+75            android:enabled="true"
+75-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+76            android:exported="true"
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+77            android:permission="android.permission.DUMP" >
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+78            <intent-filter>
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+79                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+80            </intent-filter>
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+82                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+83            </intent-filter>
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+85                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+86            </intent-filter>
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+88                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\laysi\.gradle\caches\transforms-4\ad7390cba44597e342278fcd948434ab\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+89            </intent-filter>
+90        </receiver>
+91    </application>
+92
+93</manifest>

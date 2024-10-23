@@ -1,0 +1,5 @@
+edu.nus.adproject.test.app-core-1.6.1-0 C:\Users\laysi\.gradle\caches\transforms-4\e80b697f3f6379b647d1bda19c174e5c\transformed\core-1.6.1\res
+edu.nus.adproject.test.app-androidTest-1 C:\Users\laysi\OneDrive\Desktop\Team07 AD Deliverables\Team07 AD Deliverables\2_SourceCode\MobileApp\app\build\generated\res\resValues\androidTest\debug
+edu.nus.adproject.test.app-mergeDebugAndroidTestResources-2 C:\Users\laysi\OneDrive\Desktop\Team07 AD Deliverables\Team07 AD Deliverables\2_SourceCode\MobileApp\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+edu.nus.adproject.test.app-mergeDebugAndroidTestResources-3 C:\Users\laysi\OneDrive\Desktop\Team07 AD Deliverables\Team07 AD Deliverables\2_SourceCode\MobileApp\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+edu.nus.adproject.test.app-debugAndroidTest-4 C:\Users\laysi\OneDrive\Desktop\Team07 AD Deliverables\Team07 AD Deliverables\2_SourceCode\MobileApp\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

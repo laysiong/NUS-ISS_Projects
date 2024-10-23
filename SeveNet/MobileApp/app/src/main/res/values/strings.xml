@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">AD Project</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone Number</string>
+    <string name="gender">Gender</string>
+    <string name="country">Country</string>
+    <string name="back">Back To Login</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">New Feed</string>
+    <string name="trend">Trend</string>
+    <string name="post">Post</string>
+    <string name="noti">Notification</string>
+    <string name="profile">Profile</string>
+    <string name="report">Report</string>
+    <string name="submit">Submit</string>
+    <string name="addPost">Write something&#8230;</string>
+    <string name="search">Search</string>
+    <string name="posts">Posts</string>
+    <string name="backBtn">Back</string>
+
+
+    <string name="fragementTitle">Title</string>
+
+    <!-- Post Detail (fragment_post_detail.xml) -->
+    <string name="like_button_text">Like</string>
+    <string name="comment_button_text">Comment</string>
+    <string name="menu">Menu</string>
+
+    <!-- Notification (fragment_post_detail.xml) -->
+    <string name="Notifcaiton">Notifcaiton</string>
+
+    <!-- Profile details -->
+    <string name="follower"> Follower</string>
+    <string name="following"> Following</string>
+    <string name="followVal">0</string>
+    <string name="followingVal">0</string>
+
+
+    <string name="InvalidUser">Invalid User</string>
+
+</resources>

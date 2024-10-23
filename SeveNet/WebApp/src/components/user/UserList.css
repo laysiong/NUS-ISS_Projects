@@ -1,0 +1,73 @@
+.employee-list-container {
+    width: 100%;
+    max-width: 1200px; /* max */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.employee-list-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.actions {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.actions .btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    margin: 0 5px;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employee-table th, .employee-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.employee-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.employee-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn.add-btn {
+    background-color: #28a745;
+}
+
+.btn.view-btn {
+    background-color: #007bff;
+}
+
+.btn.edit-btn {
+    background-color: #ffc107;
+}
+
+.btn.delete-btn {
+    background-color: #dc3545;
+}
+
+.btn.ban-btn {
+    background-color: #6c757d;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}

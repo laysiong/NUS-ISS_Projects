@@ -1,0 +1,230 @@
+[
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_followers_following.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_followers_following.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/menu_logout_menu.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/menu/logout_menu.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_add_post_or_comment.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_add_post_or_comment.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_activity_register.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/activity_register.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_heart.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/heart.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_profile.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/menu_pcmsgs_menu.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/menu/pcmsgs_menu.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_activity_new_feed.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/activity_new_feed.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_addpost.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/addpost.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_post_detail.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_post_detail.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_add_post.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_add_post.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_post_detail.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/post_detail.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_ic_back.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/ic_back.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_added_friend.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/added_friend.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_notification.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_notification.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_notification_row.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/notification_row.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_add.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/add.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_notification.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/notification.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_baseline_arrow_back_ios_24.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/baseline_arrow_back_ios_24.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_newspaper.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/newspaper.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_ic_border.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/ic_border.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_ic_heart_unfilled.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/ic_heart_unfilled.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/xml_backup_rules.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_activity_fake_new_feed.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/activity_fake_new_feed.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_ic_more_vert.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/ic_more_vert.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_user.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/user.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_post_list.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_post_list.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_report_form.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_report_form.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_activity_post_details.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/activity_post_details.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_ic_launcher_background.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_trend.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_trend.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/xml_data_extraction_rules.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_ic_like.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/ic_like.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_trend.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/trend.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_ic_comment.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/ic_comment.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/xml_network_security_config.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_activity_app.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/activity_app.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_fragment_comment_list.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/fragment_comment_list.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/drawable_add_friend.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/drawable/add_friend.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_post_row.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/post_row.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_activity_login.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/activity_login.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "edu.nus.adproject.app-main-33:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_item_follow_user.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/item_follow_user.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_item_label.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/item_label.xml"
+    },
+    {
+        "merged": "edu.nus.adproject.app-debug-31:/layout_item_comment.xml.flat",
+        "source": "edu.nus.adproject.app-main-33:/layout/item_comment.xml"
+    }
+]

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Username -->
+    <TextView
+        android:id="@+id/pfNameTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:textSize="20sp"
+        android:gravity="start|center_vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/overflowMenu"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Username" />
+
+    <!-- Overflow Menu (3 dots) -->
+    <ImageView
+        android:id="@+id/overflowMenu"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/menu"
+        android:padding="8dp"
+        android:src="@drawable/ic_more_vert"
+        app:layout_constraintBottom_toBottomOf="@id/pfNameTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pfNameTxt"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Timestamp -->
+    <TextView
+        android:id="@+id/timeStamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:layout_marginTop="-10px"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pfNameTxt"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Timestamp"/>
+
+    <!-- Post Content -->
+    <TextView
+        android:id="@+id/postTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timeStamp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Post content"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/likeCount"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="left|center"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginRight="30dp"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/postTxt"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/buttons"-->
+<!--        tools:text="15 likes"/>-->
+
+    <!-- Like and Comment Buttons -->
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postTxt">
+
+        <Button
+            android:id="@+id/commentBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/comment_button_text"
+            android:drawableLeft="@drawable/ic_comment"
+            android:padding="8dp"
+            android:backgroundTint="@color/likeButton"
+            android:textColor="@color/buttonTxt"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:id="@+id/likeBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/likeButton"
+            android:drawableLeft="@drawable/ic_like"
+            android:padding="8dp"
+            android:text="@string/like_button_text"
+            android:textColor="@color/buttonTxt"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

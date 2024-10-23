@@ -1,0 +1,5 @@
+Flask>=2.0.2
+nltk>=3.6.7
+joblib>=1.1.0
+scikit-learn>=1.0.2
+requests>=2.26.0
