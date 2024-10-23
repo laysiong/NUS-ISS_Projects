@@ -10,11 +10,13 @@ The project has been deployed on **AWS**, though it is currently taken down for 
 ### Backend
 - **Java Spring Boot**: Handles core business logic, user management, and other back-end services.
 - **Flask API**: Supports the machine learning model for multi-tag classification to detect cyberbullying patterns.
-- **MySQL**: Stores user data, posts, and other application-related information.
 
 ### Frontend
 - **ReactJS**: Provides a dynamic and responsive user interface for the web application.
 
+### Database
+- **MySQL (Localhost)**: Stores user information, leave records, and other data related to the application.
+  
 ### Mobile
 - **Android Studio**: Mobile application development, providing similar features for mobile users with a native Android app.
 
