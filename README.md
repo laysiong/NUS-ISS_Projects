@@ -1,3 +1,10 @@
+# CONTENT PAGE
+Here are some projects that I have worked on:
+
+- [SeveNet](#sevenet)
+- [Leave Application System](#leave-application-system)
+- [Shopping Cart Web Application](#shopping-cart-web-application)
+  
 # SeveNet
 
 ## Overview
@@ -12,6 +19,9 @@
 
 ### Frontend
 - **ReactJS**: Provides a dynamic and responsive user interface for the web application.
+
+### Database
+- **MySQL (Localhost)**: Stores user data, posts, and other application-related information.
 
 ### Mobile
 - **Android Studio**: Mobile application development with a native Android app, offering similar features to the web version.
