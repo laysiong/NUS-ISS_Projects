@@ -15,7 +15,7 @@ The project has been deployed on **AWS**, though it is currently taken down for 
 - **ReactJS**: Provides a dynamic and responsive user interface for the web application.
 
 ### Database
-- **MySQL (Localhost)**: Stores user information, leave records, and other data related to the application.
+- **MySQL (Localhost)**: Stores user data, posts, and other application-related information.
   
 ### Mobile
 - **Android Studio**: Mobile application development, providing similar features for mobile users with a native Android app.
