@@ -4,7 +4,8 @@ Here are some projects that I have worked on:
 - [SeveNet](#sevenet)
 - [Leave Application System](#leave-application-system)
 - [Shopping Cart Web Application](#shopping-cart-web-application)
-  
+- [TheMemoryGame_Android](#thememorygame_android)
+
 # SeveNet
 
 ## Overview
@@ -72,3 +73,28 @@ I ensured that products were correctly added to the cart and that the total sum 
 
 #### Frontend
 - **HTML, CSS, JavaScript**: Provides a dynamic shopping cart experience where users can add, update, and remove items.
+  
+---
+
+# TheMemoryGame_Android
+
+## Overview
+**TheMemoryGame_Android** is a memory card-matching game developed over 2-3 weeks by a team of six. The game allows players to flip cards and try to match identical images across two activities. The game fetches images from a specified URL, downloads the first 20 images, and allows players to select 6 images to play the game. <br>
+[View TheMemoryGame_Android folder](https://github.com/laysiong/NUS-ISS_Projects/tree/root/TheMemoryGame_Android)
+
+
+## My Contributions
+I ensured that users could successfully fetch the first 20 images from a specified URL. Users were able to interrupt the process and choose another set of images, with previously fetched images being removed. I also implemented the functionality for users to select 6 images to start the game.
+
+Additionally, I implemented the **two-player mode**, allowing players to take turns, and integrated sound effects and animations to make the game more engaging when images matched or mismatched.
+
+## Features
+1. **Fetch Images from URL**: Users can specify a URL and fetch the first 20 images from the webpage. A progress bar shows the number of images downloaded, with descriptive text (e.g., "Downloading 10 of 20 images…").
+2. **Grid Selection**: Once the images are fetched, the user selects 6 images to play the game.
+3. **Game Play**: 
+   - In the second activity, 12 placeholders are displayed (two for each selected image). When touched, a placeholder reveals the image behind it.
+   - If the two selected images match, they remain visible. If they don't match, they are hidden again after a brief delay.
+4. **Two-Player Mode**: Players take turns, with a winner declared at the end based on who matches more pairs.
+5. **Sound Effects and Animations**: Special sound effects and animations are triggered for matches and mismatches to enhance the game experience.
+
+
