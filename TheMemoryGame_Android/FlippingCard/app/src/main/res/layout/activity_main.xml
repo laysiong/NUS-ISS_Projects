@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+
+    Button change to start
+    Cancel will pop to check if user really wan to cancel
+
+    Type Url, No breaking to next line - Implicit
+    Button to check the URL
+
+    Cancel (drop all images) - Implicit
+
+    Clickable Image Button (selected, non-selected, deselect)
+    Begin(Bring selected to next activity) - Explicit (lauch)
+
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="100px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginBottom="20px"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/user_url"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"/>
+        <Button
+            android:id="@+id/url_get"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="@string/SearchBtn"
+            android:background="@color/btnactive"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.65"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginBottom="20px"
+        android:orientation="horizontal">
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="4"
+            android:verticalSpacing="8dp"
+            android:horizontalSpacing="8dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <!-- android:textAlignment="center"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginBottom="75px"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/progressState"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.25"
+            android:gravity="center"
+           />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.25"
+            android:visibility="gone"
+            android:max="100"
+            android:progress="100"
+           />
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/btninactive"
+            android:textColor="@color/black"
+            android:text="@string/start_button"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

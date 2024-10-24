@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">FlippingCard</string>
+    <string name="start_button">Start</string>
+    <string name="numMatch">%1$d of 6 Matches</string>
+    <string name="Timer">%1$d</string>
+    <string name="SearchBtn">Fetch</string>
+    <string name="Cancel">Cancel</string>
+
+    <string name="instruction">
+         Type in the URL you wanted
+         \n to fetch images from at the top.
+        </string>
+    <string name="downloading">%1$d of 20 Images</string>
+    <string name="download_complete">Download Completed</string>
+    <string name="selectimg">
+         Select up to 6 images to start the game.
+         \n Or type new url to grab other images.
+        </string>
+
+    <string name="singleplayer">
+        Find and match all 6 sets of images
+        \n within the time limit!
+    </string>
+
+</resources>
