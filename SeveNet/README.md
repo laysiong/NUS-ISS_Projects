@@ -23,12 +23,20 @@ The project has been deployed on **AWS**, though it is currently taken down for 
 ### Deployment
 - **AWS**: The application was deployed on AWS for scalability and performance. Currently, the application is taken down for further updates.
 
-## Features
-- **User Authentication**: Secure login and user management.
-- **Cyberbullying Detection**: Real-time detection of cyberbullying patterns using machine learning.
-- **Safe Social Space**: Provides a secure environment for users to engage with each other.
-- **Multi-Tag Classification**: Classifies messages to identify potential harmful content.
-- **Web and Mobile Access**: Available on both web and mobile platforms for flexibility.
+## My Contributions
+In this project, I primarily focused on the frontend development using ReactJS, creating a responsive and user-friendly interface. I also contributed to the Android app development using Android Studio (Java) to deliver a consistent experience across platforms. Additionally, I handled the integration of the Flask API for machine learning, deployed the ReactJS frontend on AWS S3, and set up the Flask API and Spring Boot backend on EC2. Apart from the technical work, I took charge of project management tasks, organizing team meetings to ensure we stayed on track and met our deadlines.
+
+## Features (My Part)
+- **Like/Unlike**: Users can like or unlike posts and messages.
+- **Follow/Unfollow/Block Users**: Users can follow, unfollow, or block other users they are interested in.
+- **User Profile**: Displays messages posted by the user.
+- **Report Post/Message/User**: A pop-up screen allows users to fill out a form to report inappropriate content or behavior.
+- **Administrator Dashboard**: A dashboard is provided for administrators to manage users, posts, and reports.
+- **Authentication**: Determines what users can view in posts and comments based on their roles.
+- **Admin Controls**: Admins can edit post tags and input new tags as needed.
+- **Post and Comment Display**: A component that shows posts and their associated comments.
+- **Flask API for Machine Learning**: Created a Flask API to support machine learning functionality.
+- **AWS Deployment**: The entire project was deployed on AWS, ensuring scalability and availability.
 
 ## System Architecture
 
