@@ -1,54 +1,29 @@
-# SeveNet
+# TheMemoryGame_Android
 
 ## Overview
-**SeveNet** is a web and mobile application aimed at creating a safe social space while detecting early symptoms of cyberbullying using Machine Learning (**Multi-Tag Classification**). The system provides real-time monitoring and feedback to enhance the online social experience and ensure user safety.
-
-The project has been deployed on **AWS**, though it is currently taken down for maintenance or updates.
+**TheMemoryGame_Android** is a memory card-matching game developed over 2-3 weeks by a team of six. The game allows players to flip cards and try to match identical images across two activities. Players can fetch images from a specified URL, select 6 of them, and then play the memory game.
 
 ## Technologies Used
 
-### Backend
-- **Java Spring Boot**: Handles core business logic, user management, and other back-end services.
-- **Flask API**: Supports the machine learning model for multi-tag classification to detect cyberbullying patterns.
 
-### Frontend
-- **ReactJS**: Provides a dynamic and responsive user interface for the web application.
-
-### Database
-- **MySQL (Localhost)**: Stores user data, posts, and other application-related information.
-  
 ### Mobile
-- **Android Studio**: Mobile application development, providing similar features for mobile users with a native Android app.
-
-### Deployment
-- **AWS**: The application was deployed on AWS for scalability and performance. Currently, the application is taken down for further updates.
-
+- **Android Studio (Java)**: Native mobile application development for Android devices.
+- **Android UI Components**: Grid layout for image selection and game interaction.
+- **ProgressBar**: Used to indicate image download progress.
+- **Animations**: Custom animations for matching and mismatching cards.
+  
 ## Features
-- **User Authentication**: Secure login and user management.
-- **Cyberbullying Detection**: Real-time detection of cyberbullying patterns using machine learning.
-- **Safe Social Space**: Provides a secure environment for users to engage with each other.
-- **Multi-Tag Classification**: Classifies messages to identify potential harmful content.
-- **Web and Mobile Access**: Available on both web and mobile platforms for flexibility.
+- **Fetch Images from URL**: Allows users to specify a URL and fetch the first 20 images from the webpage. A progress bar displays download progress.
+- **Grid Selection**: Users select 6 images from the downloaded images to start the game.
+- **Game Play**: 
+   - Displays 12 placeholders (two for each selected image). When a placeholder is touched, it reveals the image.
+   - If two selected images match, they remain visible. If they don't, they revert to placeholders after a delay.
+- **Two-Player Mode**: Players take turns, and a winner is declared at the end based on who matches more pairs.
+- **Sound Effects and Animations**: Special sound effects and animations play for matches and mismatches.
 
-## System Architecture
-
-SeveNet follows a modular architecture:
-
-### Backend (Java Spring Boot)
-- Manages APIs for user actions, posts, and social interactions.
-- Coordinates with the Flask API to run the machine learning model.
-
-### Machine Learning (Flask API)
-- Processes social media interactions to detect cyberbullying using Multi-Tag Classification.
-
-### Frontend (ReactJS)
-- Dynamic and interactive interface for web users to engage in social activities.
-
-### Mobile (Android Studio)
-- Native mobile app allowing users to engage in a safe social experience on-the-go.
 
 ## Usage
-Once the backend and frontend are running locally, users can interact with the web or mobile interface to create accounts, post content, and experience the cyberbullying detection feature in action.
+Once the app is running, users can input a URL to fetch images, select 6 images, and begin the game. Players can take turns in two-player mode, and the winner is determined based on the number of matched pairs.
 
 ## Contributors
-This project was developed by a team of six members, each contributing to different aspects such as backend development, machine learning, frontend design, and mobile development.
+This project was developed by a team of six members. I specifically ensured the ability to fetch and select images, implemented the two-player mode, and added sound effects and animations.
