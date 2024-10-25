@@ -25,7 +25,7 @@ In this project, I primarily focused on the **frontend development** using **Rea
 - **ReactJS**: Provides a dynamic and responsive user interface for the web application.
 
 ### Database
-- **MySQL (Localhost)**: Stores user data, posts, and other application-related information.
+- **MySQL**: Stores user data, posts, and other application-related information.
 
 ### Mobile
 - **Android Studio**: Mobile application development with a native Android app, offering similar features to the web version.
